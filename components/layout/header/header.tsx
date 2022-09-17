@@ -40,7 +40,7 @@ const Header = ()=>{
        </li>
        ))}
       </ul>
-      <ShoppingCartIcon width="35px" height="35px" color="#6e7051" className={`relative  before:content-['${0}'] before:absolute before:text-[1rem] before:font-semibold  before:top-[25%] before:left-[36%] before:text-primary`} />
+      <ShoppingCartIcon width="35px" height="35px" color="#6e7051" className={`relative  before:content-['0'] before:absolute before:text-[1rem] before:font-semibold  before:top-[25%] before:left-[36%] before:text-primary`} />
     </div>
      </nav>
     </header>

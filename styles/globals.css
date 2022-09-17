@@ -6,7 +6,7 @@
  *,*::before,*::after{
    box-sizing:border-box;
  }
- html,body,ul{
+ html,body,ul,h,p{
    margin:0;
    padding:0;
  }

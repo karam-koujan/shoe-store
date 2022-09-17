@@ -11,7 +11,7 @@ interface PropsI{
 const Logo = ({width,height,className,...rest}:PropsI)=>{
    return(
     <div className={className}>
-     <Image  src="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/site-logo.svg" width={width} height={height} {...rest}/>
+     <Image  src="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/site-logo.svg" alt="logo" width={width} height={height} {...rest}/>
 </div>
    )
 }

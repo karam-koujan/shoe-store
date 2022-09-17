@@ -25,6 +25,9 @@ module.exports = {
       fontFamily:{
         poppins : ["Poppins","sans-serif"],
         inter : ["Inter","sans-serif"]
+      },
+      backgroundImage:{
+        lghero:"url('https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-hero-image-bg.jpg')"
       }
     },
   },
