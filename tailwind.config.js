@@ -14,8 +14,13 @@ module.exports = {
         fifth:"#fbfbf9"
       },
       screens:{
-        md : {max:'960px'},
-        sm:  {max:'516px'}
+        md : {max:"960px"},
+        sm:  {max:"516px"},
+        xsm:{max:"380px"},
+        xl: {max:"1426px"}
+      },
+      spacing:{
+        xl:'88rem'
       },
       fontFamily:{
         poppins : ["Poppins","sans-serif"],
