@@ -16,7 +16,7 @@ const MobileNavLinks = ({show,setShowNavBar}:propsI)=>{
     <ul className="md:flex flex-col pt-[1.2rem]">
     {navItem.map((item,idx)=>(
       
-    <li key={idx} className=" capitalize font-inter text-[1.1rem] tracking-wide font-normal pl-[1.5rem] py-[1.2rem] border-t-[1px] border-fourths border-solid  ">
+    <li key={idx} className=" capitalize font-inter text-[1.1rem] tracking-wide font-normal pl-[1.5rem] py-[1.2rem] border-t-[1px]  border-solid  ">
       <Link href="">
       <a  className="text-primary transition-all duration-[.5s] hover:text-third focus:text-third">
        {item}

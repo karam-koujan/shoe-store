@@ -17,6 +17,7 @@ module.exports = {
         md : {max:"960px"},
         sm:  {max:"516px"},
         xsm:{max:"380px"},
+        lg:{max:"1048px"},
         xl: {max:"1426px"}
       },
       spacing:{

@@ -5,7 +5,7 @@
 
 const Hero = ()=>{
     return (
-     <section className="bg-lghero bg-no-repeat  bg-center bg-cover pt-[15rem] pb-[12rem] px-[2rem] md:py-[4rem] md:pb-[4rem] xsm:px-[1rem]">
+     <section className="bg-lghero bg-no-repeat  bg-center bg-cover pt-[15rem] pb-[12rem] px-[4.5rem] md:py-[4rem] md:pb-[4rem] sm:px-[2rem] xsm:px-[1rem]">
         <div className="max-w-[650px] w-[100%]  ">
         <h1 className="text-fifth  text-[4.5rem] font-medium font-poppins leading-[1.1] pb-[1.7rem] md:text-[3rem] sm:text-center sm:text-left ">
             Love the Planet 
