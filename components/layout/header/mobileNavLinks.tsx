@@ -9,7 +9,7 @@ interface propsI{
 
 const MobileNavLinks = ({show,setShowNavBar}:propsI)=>{
    return(
-    <div className={` ${show?"w-full left-0 ":"left-[-100%] w-0]"} hidden md:block   bg-white absolute  top-0 min-h-[100vh] z-20 pt-[1.2rem] transform-all duration-[.4s] ease-out`}>
+    <div className={` ${show?"w-full left-0 ":"left-[-100%] w-0]"} hidden md:block   bg-white absolute  top-0 min-h-[100vh] z-20 pt-[1.2rem] transform-all duration-[.4s] ease-out`} tabIndex={-1}>
     <div className="flex justify-end pr-[.8rem]" onClick={setShowNavBar}>
       <Close color="#6e7051" height="18px" width="18px"/>
     </div>

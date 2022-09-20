@@ -29,7 +29,10 @@ module.exports = {
       },
       backgroundImage:{
         lghero:"url('https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-hero-image-bg.jpg')"
-      }
+      },
+      gridTemplateColumns: {
+        'auto-fit': 'repeat(auto-fit, minmax(300px, 1fr))',
+      },
     },
   },
   plugins: [],
