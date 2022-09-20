@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const About = ()=>{
   return(
-    <section className="w-full max-w-[88rem] m-auto px-[4rem] py-[6rem] md:px-[2rem] xsm:px-[1rem]">
+    <section className="container container-primary-px py-[6rem]">
         <div className="flex gap-[4.5rem] lg:flex-col lg:justify-center lg:items-center">
             <div className="shrink-0"> 
      <Image src="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-home-about-image.jpg" alt="about" width={600} height={640} />

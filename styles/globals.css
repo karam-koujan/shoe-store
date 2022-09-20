@@ -15,4 +15,13 @@
 
 }
 
+@layer utilities{
+   .container{
+     @apply mx-auto w-full max-w-[88rem] 
+   }
+   .container-primary-px{
+    @apply  px-[4rem] md:px-[2rem] xsm:px-[1rem]
+   }
+}
+
 

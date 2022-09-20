@@ -11,7 +11,7 @@ const sponsorsLogo = [
 ]
 const Sponsors = ()=>{
   return(
-    <section className=" w-full max-w-[88rem] m-auto px-[4rem] md:px-[2rem] xsm:px-[1rem]">
+    <section className="container container-primary-px">
         <div className="flex items-center justify-center  gap-[3vw] py-[2.5rem] flex-wrap border-b-[1px]  sm:flex-col sm:gap-[1rem]">
           <span className="text-third uppercase text-[0.80rem] font-semibold tracking-[0.2em] ">
             as seen in:
