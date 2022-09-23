@@ -28,7 +28,9 @@ module.exports = {
         inter : ["Inter","sans-serif"]
       },
       backgroundImage:{
-        lghero:"url('https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-hero-image-bg.jpg')"
+        lghero:"url('https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-hero-image-bg.jpg')",
+        menCat : "url('https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-shop-men-image-thumbnail.jpg')",
+        womenCat : "url('https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-shop-women-image-tumbnail.jpg')"
       },
       gridTemplateColumns: {
         'auto-fit': 'repeat(auto-fit, minmax(300px, 1fr))',

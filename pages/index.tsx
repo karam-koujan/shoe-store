@@ -1,9 +1,11 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import About from '../components/about';
-import BestSeller from '../components/bestSeller';
+import BestSellers from '../components/products/bestSellers';
+import Category from '../components/category';
 import Hero from '../components/hero';
 import Sponsors from '../components/sponsors';
+import NewArrivals from '../components/products/newArrivals';
 const Home: NextPage = () => {
   return (
     <>
@@ -13,7 +15,9 @@ const Home: NextPage = () => {
     <Hero/>
     <Sponsors/>
     <About/>
-    <BestSeller/>
+    <BestSellers/>
+    <Category/>
+    <NewArrivals/>
     </>
   )
 }
