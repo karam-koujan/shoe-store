@@ -40,7 +40,8 @@ const Feedback = ()=>{
                              <span key={idx} className={`fa fa-star  ${feedback.rating >= idx+1 ? `text-secondary` : `text-fourth`  } `}></span>  
                          ))}
                          <p className="text-[1.12rem] text-third font-semibold py-[1.8rem]">
-                            "{feedback.text}"
+                    
+                         &ldquo;{feedback.text}&rdquo; 
                          </p>
                           <div className="flex items-center gap-[1rem]">
                            <div className="rounded-full overflow-hidden ">
