@@ -10,8 +10,6 @@
    margin:0;
    padding:0;
  }
- 
-
 
 }
 
@@ -21,6 +19,9 @@
    }
    .container-primary-px{
     @apply  px-[4rem] md:px-[2rem] xsm:px-[1rem]
+   }
+   .h2-primary{
+    @apply text-third text-center text-[2.5rem] font-poppins font-medium
    }
 }
 

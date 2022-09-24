@@ -6,6 +6,7 @@ import Category from '../components/category';
 import Hero from '../components/hero';
 import Sponsors from '../components/sponsors';
 import NewArrivals from '../components/products/newArrivals';
+import Feedback from '../components/feedback';
 const Home: NextPage = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
     <BestSellers/>
     <Category/>
     <NewArrivals/>
+    <Feedback/>
     </>
   )
 }
