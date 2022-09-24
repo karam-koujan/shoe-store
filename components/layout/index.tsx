@@ -1,5 +1,5 @@
 import Header from "./header/header";
-
+import Footer from "./footer/"
 interface propsI{
     children : React.ReactNode ;
 }
@@ -12,7 +12,7 @@ const Layout = ({children}:propsI)=>{
         <main>
             {children}
         </main>
-        
+        <Footer/>
         </>
 )
 }
