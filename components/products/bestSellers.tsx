@@ -1,8 +1,13 @@
+import * as React from "react";
+import { useFetchQuery } from "../../hooks";
 import Link from "next/link";
 import Product from "./product";
 
 
 const Products = ()=>{
+   const {data,isLoading} = useFetchQuery("bestSellers","http://localhost:1337/api/products?populate=*")
+   if(isLoading) return null
+  
   return(
      <section className="container container-primary-px" tabIndex={-1}> 
         <div>
@@ -16,7 +21,7 @@ const Products = ()=>{
                 </a>
                 </Link>
             </div>
-          <Product/>
+          <Product products={data.data}/>
         </div>
      </section>
   ) 

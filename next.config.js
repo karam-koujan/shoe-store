@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["websitedemos.net"],
+    domains: ["websitedemos.net",process.env.NEXT_PUBLIC_API_HOSTNAME],
   },
 
   reactStrictMode: true,
