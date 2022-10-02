@@ -11,7 +11,8 @@ module.exports = {
         secondary:"#f6aa28",
         third:"#262b2c",
         fourth:"#979a9b",
-        fifth:"#fbfbf9"
+        fifth:"#fbfbf9",
+        lightGrey:"#e4e6e7"
       },
       screens:{
         md : {max:"960px"},
