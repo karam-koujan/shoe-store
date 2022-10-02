@@ -5,7 +5,7 @@ import Product from "./product";
 
 
 const Products = ()=>{
-   const {data,isLoading} = useFetchQuery("bestSellers","http://localhost:1337/api/products?populate=*")
+   const {data,isLoading} = useFetchQuery("bestSellers",`${process.env.NEXT_PUBLIC_API_URL}/api/products?populate=*`)
    if(isLoading) return null
   
   return(
