@@ -7,25 +7,32 @@ import visa from "../../../asset/images/svg/visa.svg"
 import masterCard from "../../../asset/images/svg/mastercard.svg";
 import americanExpress from "../../../asset/images/svg/americanexpress.svg";
 import discover from   "../../../asset/images/svg/discover.svg";
-
+import { ImageMagnifier } from "../../../components/common";
 
 const Index:NextPage = ()=>{
     const router = useRouter()
     const {name} = router.query;
     const [sectionType,setSectionType] = React.useState("description")
+    
     const handleChangeSection = (sectionType:string)=>{
         return ()=>{
             setSectionType(sectionType)
         }
     }
+   
     return(
          <section className="container container-primary-px bg-lightGrey py-[3rem] mb-[3rem]" tabIndex={-1}>
             <div className="container container-primary-px bg-fifth ">
              <article className="py-[3rem] flex justify-between  gap-[3rem] lg:gap-[2rem] md:flex-col">
-                <div >
-                    <Image src="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-016.jpg" alt="product image" width={1900} height={1900}/>
-                </div>
-                <div >
+                <ImageMagnifier imgUrl="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-016.jpg">
+                <div className="bg-primary w-[60px] h-[60px] rounded-full flex justify-center items-center absolute top-[-2%] left-[-4%] md:w-[50px] md:h-[50px] md:left-[-3%] xsm:w-[40px] xsm:h-[40px] xsm:top-[-6%]">
+                 <span className="text-fifth text-[1.2rem] capitalize md:text-[1.1rem] xsm:text-[.9rem]">
+                  sale!
+                 </span>
+                 </div>
+                </ImageMagnifier>
+        
+                <div  className="w-full">
                     <span className="text-primary text-[1.1rem] capitalize font-medium font-poppins ">
                      women
                     </span>
@@ -101,10 +108,10 @@ const Index:NextPage = ()=>{
              <article>
                 <hr className="before:"/>
                 <ul className="flex gap-[1.4rem]  ">
-                    <li className={"capitalize text-third text-[1.1rem] font-bold py-[.7rem] cursor-pointer border-t-[3px]" + `${sectionType==="description"?"  border-primary ":""}`} onClick={handleChangeSection("description")}>
+                    <li className={"capitalize text-third text-[1.1rem] font-bold py-[.7rem] cursor-pointer border-t-[3px] " + `${sectionType==="description"?"  border-primary ":"border-transparent"}`} onClick={handleChangeSection("description")}>
                     description 
                     </li>
-                    <li className={"capitalize text-third text-[1.1rem] font-bold py-[.7rem]  cursor-pointer border-t-[3px]" + `${sectionType==="reviews" ? "  border-primary" : ""}`} onClick={handleChangeSection("reviews")}>
+                    <li className={"capitalize text-third text-[1.1rem] font-bold py-[.7rem]  cursor-pointer border-t-[3px] " + `${sectionType==="reviews" ? "  border-primary" : "border-transparent"}`} onClick={handleChangeSection("reviews")}>
                     reviews (1)
                     </li>
                 </ul>
