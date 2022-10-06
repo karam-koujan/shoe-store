@@ -1,4 +1,3 @@
-
 import * as React from "react";
 
 
@@ -14,7 +13,7 @@ const ImageMagnifier = ({children,imgUrl}:propsI)=>{
         let x = e.nativeEvent.offsetX;
         let y = e.nativeEvent.offsetY;
         let image = productImgRef.current ;
-        if(image===null){
+        if(image === null){
          return ;
         } 
         const width = image.clientWidth;
@@ -45,7 +44,7 @@ const ImageMagnifier = ({children,imgUrl}:propsI)=>{
          image.style.backgroundPositionY = "center"
      }
     return(
-        <div style={{backgroundImage:`url(${imgUrl})`}}  className={ ` w-full py-[16.5rem] self-start bg-cover sm:py-[10rem] xsm:py-[7rem] relative`} onMouseMove={handleMouseMove} onMouseOut= {handleMouseOut} ref={productImgRef}> 
+        <div style={{backgroundImage:`url(${imgUrl})`}}  className="w-full py-[16.5rem] self-start bg-cover sm:py-[10rem] xsm:py-[7rem] relative" onMouseMove={handleMouseMove} onMouseOut= {handleMouseOut} ref={productImgRef}> 
                  {children}
                  </div>
     )
