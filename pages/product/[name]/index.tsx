@@ -9,6 +9,27 @@ import americanExpress from "../../../asset/images/svg/americanexpress.svg";
 import discover from   "../../../asset/images/svg/discover.svg";
 import { ImageMagnifier } from "../../../components/common";
 
+const reviews = [
+    {
+        name: "alex",
+        image : "https://secure.gravatar.com/avatar/5a061861a1d9cd5bf192296831033b83?s=60&d=mm&r=g",
+        rating : 5,
+        description : "Best shoes ever. So comfortable and cool looking. And very good quality materials. Totally recommend!"
+    },
+    {
+        name: "alex",
+        image : "https://secure.gravatar.com/avatar/5a061861a1d9cd5bf192296831033b83?s=60&d=mm&r=g",
+        rating : 5,
+        description : "Best shoes ever. So comfortable and cool looking. And very good quality materials. Totally recommend!"
+    },
+    {
+        name: "alex",
+        image : "https://secure.gravatar.com/avatar/5a061861a1d9cd5bf192296831033b83?s=60&d=mm&r=g",
+        rating : 5,
+        description : "Best shoes ever. So comfortable and cool looking. And very good quality materials. Totally recommend!"
+    }
+ ]
+
 const Index:NextPage = ()=>{
     const router = useRouter()
     const {name} = router.query;
@@ -115,13 +136,83 @@ const Index:NextPage = ()=>{
                     reviews (1)
                     </li>
                 </ul>
-                <p className="text-fourth text-[1.2rem] leading-8 pt-[1.1rem]">
-                Auctor eros suspendisse tellus venenatis sodales purus non pellentesque amet, nunc sit eu, enim fringilla egestas pulvinar odio feugiat consectetur egestas magna pharetra cursus risus, lectus enim eget eu et lobortis faucibus.
-
-Eget odio justo ut scelerisque purus non aliquam adipiscing amet condimentum ligula diam erat sodales pharetra accumsan pellentesque at sem at eget ac hendrerit odio enim felis sit augue lorem egestas dictum vestibulum a etiam nisi, elit augue volutpat porta scelerisque nullam at leo faucibus cursus metus.
-
-Viverra nunc iaculis id sed diam nam quam id sapien pellentesque quam sed eu augue id ac tempus aliquam facilisis vivamus eget nisi id.
-                </p>
+                {
+                    sectionType === "description" ? (
+                        <p className="text-fourth text-[1.2rem] leading-8 pt-[1.1rem]">
+                        Auctor eros suspendisse tellus venenatis sodales purus non pellentesque amet, nunc sit eu, enim fringilla egestas pulvinar odio feugiat consectetur egestas magna pharetra cursus risus, lectus enim eget eu et lobortis faucibus.
+        
+        Eget odio justo ut scelerisque purus non aliquam adipiscing amet condimentum ligula diam erat sodales pharetra accumsan pellentesque at sem at eget ac hendrerit odio enim felis sit augue lorem egestas dictum vestibulum a etiam nisi, elit augue volutpat porta scelerisque nullam at leo faucibus cursus metus.
+        
+        Viverra nunc iaculis id sed diam nam quam id sapien pellentesque quam sed eu augue id ac tempus aliquam facilisis vivamus eget nisi id.
+                        </p>
+                    ):
+                    (
+                      <React.Fragment>
+                       <div className="pt-[1.5rem] flex flex-col gap-[1.6rem]">
+                          {
+                            reviews.map((review,idx)=>(
+                                <div key={idx} >
+                                    <div className="flex gap-[1rem]">
+                                        <div className="rounded-full overflow-hidden " >
+                                            <Image src={review.image}  alt={`${review.name} profile image`} layout="fixed" objectFit="cover" className="rounded-full" width={60} height={60}/>
+                                        </div>
+                                    <div >
+                                        <div>
+                                            <p className="capitalize text-fourth text-[1.5rem] font-inter mb-[.5rem]">{review.name}</p>
+                                              
+                                            {new Array(5).fill(undefined).map((_,idx)=>(
+                                                <span key={idx} className={`fa fa-star text-[1.3rem] ${review.rating >= idx+1 ? `text-secondary` : `text-fourth`  } `}></span>  
+                                              ) )}   
+                                        </div>
+                                    <p className="text-fourth text-[1.2rem] leading-8 pt-[.9rem]">
+                                        {review.description}
+                                    </p>
+                                    </div>
+                                </div>
+                                </div>
+                            ))
+                          }
+                       </div>
+                       <article className="my-[3rem] py-[2rem] px-[2rem] border-[1px]   rounded-[3px]">
+                         <h2 className="text-fourth text-[1.5rem]"><span className="capitalize">add</span> a review</h2>
+                         <p className="text-fourth text-[1.1rem] pt-[.5rem]">
+                         Your email address will not be published. Required fields are marked *
+                         </p>
+                         <div className="flex  items-center">
+                         <span className="text-fourth text-[1.5rem] mr-[.8rem]"><span className="capitalize">your</span> rating *</span>
+                          <div className="flex gap-[.3rem]">
+                          {new Array(5).fill(undefined).map((_,idx)=>(
+                               
+                                                <span key={idx} className={`fa fa-star text-[1.5rem] text-fourth `}></span>  
+                        ))}
+                         </div>
+                        </div>
+                        <form action="">
+                          <label>
+                          Your review *
+                          </label>
+                          <textarea className="border-[1px] rounded-[3px] px-[.7rem] py-[.6rem] "/>
+                          <div>
+                          <label>
+                          name *
+                          </label>
+                          <input type="text" className="border-[1px] rounded-[3px] px-[.7rem] py-[.6rem]"/>
+                          <label>
+                          name *
+                          </label>
+                          <input  type="email" className="border-[1px] rounded-[3px] px-[.7rem] py-[.6rem]"/>
+                          </div>
+                          <input type="checkbox"/>
+                          <span> Save my name, email, and website in this browser for the next time I comment.</span>
+                         <button>
+                            submit
+                         </button>
+                        </form>   
+                       </article>
+                       </React.Fragment>
+                    )
+                }
+               
              </article>
             </div>
          </section>
