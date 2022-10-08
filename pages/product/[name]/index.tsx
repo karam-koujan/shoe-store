@@ -8,6 +8,7 @@ import masterCard from "../../../asset/images/svg/mastercard.svg";
 import americanExpress from "../../../asset/images/svg/americanexpress.svg";
 import discover from   "../../../asset/images/svg/discover.svg";
 import { ImageMagnifier } from "../../../components/common";
+import RelatedProducts from "../../../components/products/relatedProducts";
 
 const reviews = [
     {
@@ -43,8 +44,8 @@ const Index:NextPage = ()=>{
    
     return(
          <section className="container container-primary-px bg-lightGrey py-[3rem] mb-[3rem]" tabIndex={-1}>
-            <div className="container container-primary-px bg-fifth ">
-             <article className="py-[3rem] flex justify-between  gap-[3rem] lg:gap-[2rem] md:flex-col">
+            <div className="container container-primary-px bg-fifth pt-[3rem] pb-[10rem]">
+             <article className="pb-[3rem] flex justify-between  gap-[3rem] lg:gap-[2rem] md:flex-col">
                 <ImageMagnifier imgUrl="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-016.jpg">
                 <div className="bg-primary w-[60px] h-[60px] rounded-full flex justify-center items-center absolute top-[-2%] left-[-4%] md:w-[50px] md:h-[50px] md:left-[-3%] xsm:w-[40px] xsm:h-[40px] xsm:top-[-6%]">
                  <span className="text-fifth text-[1.2rem] capitalize md:text-[1.1rem] xsm:text-[.9rem]">
@@ -173,13 +174,13 @@ const Index:NextPage = ()=>{
                             ))
                           }
                        </div>
-                       <article className="my-[3rem] py-[2rem] px-[2rem] border-[1px]   rounded-[3px]">
+                       <article className="my-[3rem] py-[2rem] px-[2rem] border-[1px]   rounded-[3px] sm:px-[1rem]">
                          <h2 className="text-fourth text-[1.5rem]"><span className="capitalize">add</span> a review</h2>
                          <p className="text-fourth text-[1.1rem] pt-[.5rem]">
                          Your email address will not be published. Required fields are marked *
                          </p>
-                         <div className="flex  items-center">
-                         <span className="text-fourth text-[1.5rem] mr-[.8rem]"><span className="capitalize">your</span> rating *</span>
+                         <div className="flex  items-center sm:flex-col sm:mb-[2rem]">
+                         <span className="text-fourth text-[1.5rem] my-[1rem] mr-[.8rem] sm:mr-[0rem] "><span className="capitalize">your</span> rating *</span>
                           <div className="flex gap-[.3rem]">
                           {new Array(5).fill(undefined).map((_,idx)=>(
                                
@@ -188,23 +189,27 @@ const Index:NextPage = ()=>{
                          </div>
                         </div>
                         <form action="">
-                          <label>
+                          <label className="text-fourth text-[1.4rem] block mb-[.5rem]">
                           Your review *
                           </label>
-                          <textarea className="border-[1px] rounded-[3px] px-[.7rem] py-[.6rem] "/>
-                          <div>
-                          <label>
+                          <textarea className="border-[1px] rounded-[3px] px-[.7rem] py-[1rem] w-full block"/>
+                          <div className="flex w-full gap-[1.3rem] mt-[1.5rem] sm:flex-col">
+                          <div className="w-full"> 
+                          <label className="text-fourth text-[1.4rem] capitalize block mb-[.5rem]">
                           name *
                           </label>
-                          <input type="text" className="border-[1px] rounded-[3px] px-[.7rem] py-[.6rem]"/>
-                          <label>
-                          name *
-                          </label>
-                          <input  type="email" className="border-[1px] rounded-[3px] px-[.7rem] py-[.6rem]"/>
+                          <input type="text" className="border-[1px] rounded-[3px] px-[.7rem] py-[.6rem] w-full"/>
                           </div>
-                          <input type="checkbox"/>
-                          <span> Save my name, email, and website in this browser for the next time I comment.</span>
-                         <button>
+                          <div className="w-full">
+                          <label className="text-fourth text-[1.4rem] capitalize block mb-[.5rem]">
+                          email *
+                          </label>
+                          <input  type="email" className="border-[1px] rounded-[3px] px-[.7rem] py-[.6rem] w-full"/>
+                          </div>
+                          </div>
+                          <input type="checkbox" className="mt-[1.5rem]"/>
+                          <span className="text-fourth text-[1.1rem] mt-[1.5rem] "> Save my name, email, and website in this browser for the next time I comment.</span>
+                         <button className="bg-primary  text-fifth uppercase text-poppins tracking-widest font-semibold py-[.7rem] px-[1.5rem] text-center block mt-[1.5rem] sm:m-auto sm:mt-[1rem] transition-all duration-[100ms] hover:bg-third focus:bg-fourth">
                             submit
                          </button>
                         </form>   
@@ -214,6 +219,7 @@ const Index:NextPage = ()=>{
                 }
                
              </article>
+            <RelatedProducts/>
             </div>
          </section>
     )

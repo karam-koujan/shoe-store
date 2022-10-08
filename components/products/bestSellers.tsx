@@ -11,7 +11,7 @@ const Products = ()=>{
   return(
      <section className="container container-primary-px" tabIndex={-1}> 
         <div>
-            <div className="flex justify-between w-full items-center sm:flex-col sm:gap-[2rem] ">
+            <div className="flex justify-between w-full items-center sm:flex-col sm:gap-[2rem] mb-[2.5rem]">
                 <h2 className="capitalize text-third text-[1.5rem] font-poppins font-medium">
                    our best seller
                 </h2>

@@ -22,7 +22,7 @@ const Product = ({products}:propsI)=>{
     
     return(
 
-        <div  className="grid grid-cols-auto-fit pt-[2.5rem] gap-[1.5rem] gap-y-[3rem] sm:gap-y-[1.5rem]">
+        <div  className="grid grid-cols-auto-fit gap-[1.5rem] gap-y-[3rem] sm:gap-y-[1.5rem]">
         {
             products.map((product:productsI)=>(
                 <div key={product.id}>

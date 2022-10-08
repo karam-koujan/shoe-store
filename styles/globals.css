@@ -18,6 +18,9 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
+input:focus,textarea:focus{
+  outline:none;
+}
 input[type=number] {
   -moz-appearance: textfield;
 }
