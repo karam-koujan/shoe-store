@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Rating from "../common/rating";
 
 interface attributesI{
     name: string;
@@ -44,9 +45,7 @@ const Product = ({products}:propsI)=>{
                         </span>
                         </div>
                         <div>
-                         {new Array(5).fill(undefined).map((_,idx)=>(
-                             <span key={idx} className={`fa fa-star  ${product.attributes.rating >= idx+1 ? `text-secondary` : `text-fourth`  } `}></span>  
-                         ))}   
+                      <Rating rating={product.attributes.rating} />
                     
                         </div>
                      </div>
