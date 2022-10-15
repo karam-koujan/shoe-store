@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Close } from "../../common";
+import { Close } from "../../";
 const navItem = ["Home","men","women","categories","lookbook","sale","our story","contact"];
 
 interface propsI{

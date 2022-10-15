@@ -1,7 +1,7 @@
 import * as React from "react";
 import { NextPage } from "next";
 import { Close, Hamburger } from "../../components/common";
-import Men from "../../components/products/men";
+import {Men} from "../../components/common/products";
 import MultiRangeSlider from "../../components/common/multiRangeSlider";
 import Rating from "../../components/common/rating";
 

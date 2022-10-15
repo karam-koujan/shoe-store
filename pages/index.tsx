@@ -1,12 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import About from '../components/about';
-import BestSellers from '../components/products/bestSellers';
-import Category from '../components/category';
-import Hero from '../components/hero';
-import Sponsors from '../components/sponsors';
-import NewArrivals from '../components/products/newArrivals';
-import Feedback from '../components/feedback';
+import {BestSellers,NewArrivals} from '../components/common/products';
+import {About,Hero,Sponsors,Feedback,Category} from "../components/landing";
+
 const Home: NextPage = () => {
   return (
     <>

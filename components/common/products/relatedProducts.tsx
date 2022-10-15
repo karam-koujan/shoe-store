@@ -1,4 +1,4 @@
-import { useFetchQuery } from "../../hooks";
+import { useFetchQuery } from "../../../hooks";
 import Product from "./product";
 
 

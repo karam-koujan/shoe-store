@@ -1,10 +1,10 @@
 import * as React from "react";
-import { useFetchQuery } from "../../hooks";
+import { useFetchQuery } from "../../../hooks";
 import Link from "next/link";
 import Product from "./product";
 
 
-const Products = ()=>{
+const BestSellers = ()=>{
    const {data,isLoading} = useFetchQuery("bestSellers",`${process.env.NEXT_PUBLIC_API_URL}/api/products?populate=*`)
    if(isLoading) return null
   
@@ -27,5 +27,5 @@ const Products = ()=>{
   ) 
 }
 
-export default Products;
+export default BestSellers;
 

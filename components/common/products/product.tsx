@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Rating from "../common/rating";
+import Rating from "../../common/rating";
 
 interface attributesI{
     name: string;

@@ -1,12 +1,7 @@
 import * as React   from "react";
-import Link from "next/link";
-import Image from "next/image";
 import {useRouter} from "next/router";
 import type { NextPage } from 'next';
-
-import { ImageMagnifier } from "../../../components/common";
-import RelatedProducts from "../../../components/products/relatedProducts";
-import Rating from "../../../components/common/rating";
+import {RelatedProducts} from "../../../components/common/products";
 import { Description, Reviews, ProductInfo } from "../../../components/product";
 
 

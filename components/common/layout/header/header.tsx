@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link  from "next/link";
-import {Hamburger,ShoppingCartIcon,Logo} from "../../common";
+import {Hamburger,ShoppingCartIcon,Logo} from "../../";
 import MobileNavLinks from "./mobileNavLinks";
 
 const navItem = ["men","women","categories","lookbook","sale","our story","contact"];
