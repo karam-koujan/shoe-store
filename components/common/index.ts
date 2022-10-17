@@ -4,6 +4,7 @@ import ImageMagnifier from "./ImageMagnifier";
 import Layout from "./layout";
 import Rating from "./rating";
 import MultiRangeSlider from "./multiRangeSlider";
+import Cart from "./cart";
 import { 
    Men,
    BestSellers,
@@ -23,5 +24,6 @@ export {
    Product,
    RelatedProducts,
    MultiRangeSlider,
-   Rating
+   Rating,
+   Cart
 }

@@ -1,12 +1,21 @@
 import * as React from "react";
 import Link  from "next/link";
-import {Hamburger,ShoppingCartIcon,Logo} from "../../";
+import {Hamburger,ShoppingCartIcon,Logo,Cart} from "../../";
 import MobileNavLinks from "./mobileNavLinks";
 
 const navItem = ["men","women","categories","lookbook","sale","our story","contact"];
 const Header = ()=>{
   const [showNavBar,setShowNavBar] = React.useState(false) ;
   const handleShowNavBar = ()=>setShowNavBar(!showNavBar)
+  const [showCart,setShowCart] = React.useState(false);
+  const handleShowCart = ()=>{
+    window.document.body.style.overflowY="hidden"
+    setShowCart(true);
+  } 
+  const handleHideCart = ()=>{ 
+    window.document.body.style.overflowY="auto"
+    setShowCart(false)
+  };
    return (
     <header className="container px-[2.4rem] py-[2.4rem] xsm:px-[1rem] md:px-[2rem] md:py-[1rem] items-center" tabIndex={-1}>
      {showNavBar?<div className="hidden md:block bg-fourth opacity-75 absolute h-[100vh] w-[100%] left-0 top-0 z-0 transition-all duration-[.2s]"></div>:null}
@@ -40,9 +49,10 @@ const Header = ()=>{
        </li>
        ))}
       </ul>
-      <ShoppingCartIcon width="35px" height="35px" color="#6e7051" className={`relative  before:content-['0'] before:absolute before:text-[1rem] before:font-semibold  before:top-[25%] before:left-[36%] before:text-primary`} />
+      <ShoppingCartIcon width="35px" height="35px" color="#6e7051" onClick={handleShowCart} className={`relative cursor-pointer  before:content-['0'] before:absolute before:text-[1rem] before:font-semibold  before:top-[25%] before:left-[36%] before:text-primary`} />
     </div>
      </nav>
+     <Cart showCart={showCart} handleHideCart={handleHideCart}/>
     </header>
    )
 }
