@@ -11,7 +11,7 @@ interface propsI{
 const Cart = ({showCart,handleHideCart}:propsI)=>{
     return(
         <React.Fragment>
-        {showCart?<div className="bg-fourth opacity-75 absolute h-[100vh] w-[100%] left-0 top-0 z-0 transition-all duration-[.2s]"></div>:null}
+        {showCart?<div className="bg-fourth opacity-75 absolute h-[100vh] w-[100%] left-0 top-0 z-10 transition-all duration-[.2s]"></div>:null}
         <div className={` ${showCart?"w-full max-w-[450px] right-0 ":"right-[-100%] w-0]"} overflow-y-auto flex flex-col justify-between  md:block   bg-white absolute  top-0 h-[100vh] z-20  transform-all duration-[.4s] ease-out`} tabIndex={-1}>
          <div>
          <div  className="flex justify-between border-b-lightGrey border-b-[1px] py-[1rem] px-[1.3rem] ">

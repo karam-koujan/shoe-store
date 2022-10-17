@@ -6,6 +6,10 @@
  *,*::before,*::after{
    box-sizing:border-box;
  }
+ body{
+  overflow-x: hidden;
+
+ }
  html,body,ul,h,p{
    margin:0;
    padding:0;
