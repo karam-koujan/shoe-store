@@ -1,8 +1,8 @@
 import useFetchQuery from "./useFetchQuery"
 import useRating from "./useRating"
-import useLocalhost from "./useLocalhost"
+import useLocalStorage from "./useLocalStorage"
 export {
     useFetchQuery,
     useRating,
-    useLocalhost
+    useLocalStorage
 }

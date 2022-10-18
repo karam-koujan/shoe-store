@@ -12,6 +12,8 @@ const ProductInfo = ()=>{
     const [productAmount,setProductAmount] = React.useState(1);
     const handleAddProduct = ()=>setProductAmount(productAmount+1)
     const handleRemoveProduct = ()=>productAmount-1 > 0 ? setProductAmount(productAmount-1) : null
+ 
+    
     return(
         <article className="pb-[3rem] flex justify-between  gap-[3rem] lg:gap-[2rem] md:flex-col">
         <ImageMagnifier imgUrl="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-016.jpg">
@@ -59,7 +61,7 @@ const ProductInfo = ()=>{
                     <input type="number" name={`number of ${productAmount}`}  className="w-full focus:outline-0 text-center text-primary" value={productAmount}/>
                     <button className="w-full text-primary border-l-[1px]" onClick={handleAddProduct}>+</button>
                 </div>
-                <button className="bg-primary py-[.5em] px-[1.2em] text-center uppercase font-bold text-[1.1rem] text-fifth tracking-[.1rem] transition-all duration-[.3s] ease-in-out hover:bg-third focus:bg-third">
+                <button  className="bg-primary py-[.5em] px-[1.2em] text-center uppercase font-bold text-[1.1rem] text-fifth tracking-[.1rem] transition-all duration-[.3s] ease-in-out hover:bg-third focus:bg-third">
                     add to cart
                 </button>
             </div>

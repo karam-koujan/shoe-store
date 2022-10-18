@@ -1,6 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { Close } from "../icons";
+import { useShoppingCart } from "../../../context/shoppingCartContext";
 
 
 
@@ -9,6 +10,10 @@ interface propsI{
     handleHideCart: ()=>any;
 }
 const Cart = ({showCart,handleHideCart}:propsI)=>{
+  const {shoppingCart,_} = useShoppingCart()
+  React.useEffect(()=>{
+    console.log(shoppingCart)
+  },[])
     return(
         <React.Fragment>
         {showCart?<div className="bg-fourth opacity-75 absolute h-[100vh] w-[100%] left-0 top-0 z-10 transition-all duration-[.2s]"></div>:null}
@@ -23,7 +28,7 @@ const Cart = ({showCart,handleHideCart}:propsI)=>{
                 <div className="flex gap-[1.3rem]">
                  <Image src="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-020-400x400.jpg" alt="product image" width={70} height={70}/>
                  <div>
-                   <p className="text-third text-[1.1rem] capitalize mb-[.5rem]">men's classic mint</p>
+                   <p className="text-third text-[1.1rem] capitalize mb-[.5rem]">{shoppingCart.name}</p>
                    <div className="border-[1px]  flex justify-between w-[120px] ">
                     <button className="w-full text-primary border-r-[1px]  py-[.3rem]" >-</button>
                     <input type="number" name="empty"  className="w-full focus:outline-0 text-center text-primary" value={0}/>
