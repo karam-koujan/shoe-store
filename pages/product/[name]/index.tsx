@@ -91,7 +91,7 @@ export async function getStaticProps({params}:contextI) {
     const product = await res.json()
     return {
       // Passed to the page component as props
-      props: { product: product.data[0].attributes },
+      props: { product: product.data[0].attributes , key:product.data[0].id},
     }
   }
 export default Index;

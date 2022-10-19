@@ -29,7 +29,7 @@ const Product = ({products}:propsI)=>{
             products.map((product:productsI)=>(
 
                 <div key={product.id}>
-                    <Link href={`/product/${product.attributes.name}`}>
+                    <Link href={`/product/${product.attributes.name}`} >
                     <a>
                     <div>
                         <div tabIndex={0} className="w-full cursor-pointer before:content-['quick\00a0view'] relative  before:absolute before:bg-third before:text-fifth before:capitalize before:text-[1.1rem] before:text-center before:left-[0] before:right-[0] before:bottom-[.1%] before:py-[.5rem] z-1 before:z-20 before:opacity-0  before:transition-all before:duration-[.3s] before:ease-out hover:before:opacity-100 focus:before:opacity-100  after:content-['Sale!'] after:absolute after:bg-primary after:text-fifth after:rounded-[50%]  after:top-[-2%] after:right-[-2%] after:w-[40px] after:h-[40px] after:flex after:justify-center after:items-center after:text-[0.9rem]">
