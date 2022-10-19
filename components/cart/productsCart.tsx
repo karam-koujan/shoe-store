@@ -1,8 +1,14 @@
+import * as React from "react";
 import Image from "next/image";
+import { useShoppingCart } from "../../context/shoppingCartContext";
 import { Close } from "../common";
 
 
 const ProductsCart = ()=>{
+    consta {shoppingCart} = useShoppingCart();
+    React.useEffect(()=>{
+     console.log("soppingCart",shoppingCart)
+    },[])
     return (
      <>
         <table className="  border-fourth border-[.5px] w-[680px] md:hidden">

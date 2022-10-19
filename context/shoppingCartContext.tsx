@@ -8,10 +8,9 @@ interface propsI{
 }
 interface shoppingCartI{
     name:string;
-    image:string;
-    price:string;
-    rating:number;
-    amount: number;
+    image:any;
+    price:number;
+    productAmount: number;
 }
 interface shoppingCartContextI{
     shoppingCart: shoppingCartI[];

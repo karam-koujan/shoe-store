@@ -2,7 +2,7 @@
 
 
 interface propsI{
-    className:string;
+    className?:string;
     width:string;
     height:string;
     color:string;

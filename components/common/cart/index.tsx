@@ -11,9 +11,7 @@ interface propsI{
 }
 const Cart = ({showCart,handleHideCart}:propsI)=>{
   const {shoppingCart,_} = useShoppingCart()
-  React.useEffect(()=>{
-    console.log(shoppingCart)
-  },[])
+  const totalPrice = shoppingCart.reduce((acc:number,{price}:{price:number})=>acc+price,0)
     return(
         <React.Fragment>
         {showCart?<div className="bg-fourth opacity-75 absolute h-[100vh] w-[100%] left-0 top-0 z-10 transition-all duration-[.2s]"></div>:null}
@@ -23,15 +21,18 @@ const Cart = ({showCart,handleHideCart}:propsI)=>{
            <h2 className="text-third capitalize text-[1.1rem] font-poppins  self-center">shopping cart</h2>
              <Close color="#262b2c" onClick={handleHideCart}  className="border-[2px] border-primary py-[.4rem] px-[.8rem] cursor-pointer transition-all duration-[.1s] ease-in-out hover:border-fourth focus:border-fourth"/>
            </div>
-           {true&&<div className="px-[1.3rem] py-[2.5rem] flex flex-col gap-[2.5rem] ">
-             <div className="flex justify-between">
+           {shoppingCart.length>0?
+           (
+           <div className="px-[1.3rem] py-[2.5rem] flex flex-col gap-[2.5rem] ">
+             {shoppingCart.map(({name,productAmount,image,price}:any,idx:number)=>(
+             <div className="flex justify-between" key={idx}>
                 <div className="flex gap-[1.3rem]">
-                 <Image src="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-020-400x400.jpg" alt="product image" width={70} height={70}/>
+                 <Image src={`${process.env.NEXT_PUBLIC_API_URL}${image.data.attributes.url}`} alt={`${name} image`} width={70} height={70}/>
                  <div>
-                   <p className="text-third text-[1.1rem] capitalize mb-[.5rem]">{shoppingCart.name}</p>
+                   <p className="text-third text-[1.1rem] capitalize mb-[.5rem]">{name}</p>
                    <div className="border-[1px]  flex justify-between w-[120px] ">
                     <button className="w-full text-primary border-r-[1px]  py-[.3rem]" >-</button>
-                    <input type="number" name="empty"  className="w-full focus:outline-0 text-center text-primary" value={0}/>
+                    <input type="number" name="empty"  className="w-full focus:outline-0 text-center text-primary" value={productAmount}/>
                     <button className="w-full text-primary border-l-[1px]">+</button>
                 </div>
                  </div>
@@ -41,21 +42,25 @@ const Cart = ({showCart,handleHideCart}:propsI)=>{
                <Close color="#979a9b" size="17px" />
                      </button>
                  <p className="text-fourth text-[1.1rem] font-poppins">
-                   $89.00
+                   ${price}
                  </p>
                 </div>
              </div>
-           </div>}
-           {false&&<div className="flex justify-center items-center py-[30%]">
+                 ))}
+           </div>):(
+           <div className="flex justify-center items-center py-[30%]">
              <p className="text-primary text-[1.1rem] font-poppins">
                <span className="capitalize">No</span> product in the cart
              </p>
-           </div>}
            </div>
-           {true&&<div>
+
+           )}
+           </div>
+           {shoppingCart.length>0?
+           (<div>
              <div className="flex justify-between px-[1.3rem] py-[1rem] border-t-[1px] border-b-[1px] border-lightGrey">
                <p className="font-poppins text-[1.1rem] text-third capitalize">subtotal:</p>
-               <p className="font-poppins text-fourth text-[1.1rem]">$89.00</p>
+               <p className="font-poppins text-fourth text-[1.1rem]">${totalPrice}</p>
              </div>
              <div className="py-[1.2rem] px-[1.3rem] flex flex-col gap-[.8rem]">
              <button className="uppercase font-poppins tracking-widest bg-fifth text-primary border-[1px] border-primary text-center w-full py-[.9rem] font-semibold text-[1.12rem] transition-all duration-[.2s] ease-in-out hover:text-third hover:border-third  focus:text-third focus:border-third">
@@ -65,10 +70,15 @@ const Cart = ({showCart,handleHideCart}:propsI)=>{
                checkout
              </button>
              </div>
-           </div>}
-           {false&&<button className="bocl px-[1.3rem] py-[1rem] uppercase font-poppins tracking-widest bg-fifth text-primary border-[1px] border-primary text-center w-full py-[.9rem] font-semibold text-[1.12rem] transition-all duration-[.2s] ease-in-out hover:text-third hover:border-third  focus:text-third focus:border-third">
+           </div>):
+           (
+            <div className="px-[1.3rem] py-[1rem]"> 
+           <button className="block  uppercase font-poppins tracking-widest bg-fifth text-primary border-[1px] border-primary text-center w-full py-[.9rem] font-semibold text-[1.12rem] transition-all duration-[.2s] ease-in-out hover:text-third hover:border-third  focus:text-third focus:border-third">
                continue shopping
-             </button>}
+             </button>
+
+            </div>
+             )}
        </div>
        </React.Fragment>
     )

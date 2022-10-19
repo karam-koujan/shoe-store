@@ -2,12 +2,14 @@ import * as React from "react";
 import Link  from "next/link";
 import {Hamburger,ShoppingCartIcon,Logo,Cart} from "../../";
 import MobileNavLinks from "./mobileNavLinks";
+import { useShoppingCart } from "../../../../context/shoppingCartContext";
 
 const navItem = ["men","women","categories","lookbook","sale","our story","contact"];
 const Header = ()=>{
   const [showNavBar,setShowNavBar] = React.useState(false) ;
   const handleShowNavBar = ()=>setShowNavBar(!showNavBar)
   const [showCart,setShowCart] = React.useState(false);
+  const {shoppingCart} = useShoppingCart()
   const handleShowCart = ()=>{
     window.document.body.style.overflowY="hidden"
     setShowCart(true);
@@ -49,7 +51,12 @@ const Header = ()=>{
        </li>
        ))}
       </ul>
-      <ShoppingCartIcon width="35px" height="35px" color="#6e7051" onClick={handleShowCart} className={`relative cursor-pointer  before:content-['0'] before:absolute before:text-[1rem] before:font-semibold  before:top-[25%] before:left-[36%] before:text-primary`} />
+      <div className="relative cursor-pointer " onClick={handleShowCart}>
+        <span  className="absolute text-[1rem] font-semibold  top-[25%] left-[36%] text-primary">
+          {shoppingCart.length}
+        </span>
+      <ShoppingCartIcon width="35px" height="35px" color="#6e7051"   />
+      </div>
     </div>
      </nav>
      <Cart showCart={showCart} handleHideCart={handleHideCart}/>
