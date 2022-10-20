@@ -2,7 +2,7 @@ import { useShoppingCart } from "../../context/shoppingCartContext";
 
 const TotalCart = ()=>{
     const {shoppingCart} = useShoppingCart();
-    const totalPrice = shoppingCart.reduce((acc:number,{price}:{price:number})=>acc+price,0)
+    const totalPrice = shoppingCart.reduce((acc:number,{price,productAmount}:{price:number,productAmount:number})=>acc+price*productAmount,0)
      return(
     
         <table className="border-fourth border-[.5px]  md:w-full">

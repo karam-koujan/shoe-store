@@ -10,6 +10,7 @@ import discover from   "../../../asset/images/svg/discover.svg";
 import ProductI from "../../../types/product";
 import { useShoppingCart } from "../../../context/shoppingCartContext";
 import {useLocalStorage} from "../../../hooks";
+import ShoppingCartI from "../../../types/shoppingCart";
 
 interface propsI{
     product:ProductI
@@ -20,21 +21,21 @@ const ProductInfo = ({product:{name,rating,sale,price,description,categories,ima
     const [_,setLocalStorage] = useLocalStorage("shoppingCart");
     const {shoppingCart,setShoppingCart} = useShoppingCart()
     React.useEffect(()=>{
-      const isProductExist = shoppingCart.some((product:ProductI)=>product.name===name)
+      const isProductExist = shoppingCart.some((product:ShoppingCartI)=>product.name===name)
         setIsProductAdded(isProductExist)
     },[shoppingCart])
 
     
     const handleAddProduct = ()=>{ 
          setProductAmount(productAmount+1)
-         const updatedShoppingCart = shoppingCart.map((product:ProductI)=>product.name===name?{...product,productAmount:productAmount+1,price:(productAmount+1)*price}:product)    
+         const updatedShoppingCart = shoppingCart.map((product:ShoppingCartI)=>product.name===name?{...product,productAmount:productAmount+1,price}:product)    
          setShoppingCart(updatedShoppingCart)
          setLocalStorage(updatedShoppingCart)
         }
     const handleRemoveProduct = ()=>{
         if(productAmount-1  > 0 ){
             setProductAmount(productAmount-1)
-            const updatedShoppingCart = shoppingCart.map((product:ProductI)=>product.name===name?{...product,productAmount:productAmount-1,price:(productAmount-1)*price}:product)    
+            const updatedShoppingCart = shoppingCart.map((product:ShoppingCartI)=>product.name===name?{...product,productAmount:productAmount-1,price}:product)    
             setShoppingCart(updatedShoppingCart)
             setLocalStorage(updatedShoppingCart)
         }
@@ -82,10 +83,10 @@ const ProductInfo = ({product:{name,rating,sale,price,description,categories,ima
             </div>
             <div className="text-fourth">
                 {sale?(<span className="text-[1.8rem] font-inter mr-[.3rem] line-through opacity-40">
-                  ${(sale*productAmount).toFixed(2)}
+                  ${sale.toFixed(2)}
                 </span>):null}
                     <span className="text-[1.8rem] font-semibold font-inter mr-[.3rem]">
-                    ${(price *productAmount).toFixed(2)}
+                    ${price.toFixed(2)}
                     </span>
                     <span className="capitalize  text-[1.1rem]">
                     & free shipping

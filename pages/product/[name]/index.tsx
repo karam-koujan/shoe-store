@@ -66,7 +66,6 @@ export async function getStaticPaths(){
         }
       }
      */ 
-    console.log("G")
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`);
       const products = await res.json()
       const paths = products.data.map(({attributes}:serverResI)=>({
@@ -76,7 +75,6 @@ export async function getStaticPaths(){
 }
 
 export async function getStaticProps({params}:contextI) {
- console.log(params)
   const query = qs.stringify({
     filters: {
       name: {

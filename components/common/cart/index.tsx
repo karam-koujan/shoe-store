@@ -2,16 +2,18 @@ import * as React from "react";
 import Image from "next/image";
 import { Close } from "../icons";
 import { useShoppingCart } from "../../../context/shoppingCartContext";
-
-
+import { useShoppingCartLogic} from "../../../hooks";
+import Link from "next/link";
 
 interface propsI{
     showCart:boolean;
     handleHideCart: ()=>any;
 }
 const Cart = ({showCart,handleHideCart}:propsI)=>{
-  const {shoppingCart,_} = useShoppingCart();
-  const totalPrice = shoppingCart.reduce((acc:number,{price}:{price:number})=>acc+price,0)
+  const {shoppingCart,setShoppingCart} = useShoppingCart();
+  const totalPrice = shoppingCart.reduce((acc:number,{price,productAmount}:{price:number,productAmount:number})=>acc+(price*productAmount),0);
+  const {handleAddProduct,handleRemoveProduct,handleDeleteProduct} = useShoppingCartLogic({shoppingCart,setShoppingCart});
+
     return(
         <React.Fragment>
         {showCart?<div className="bg-fourth opacity-75 absolute h-[100vh] w-[100%] left-0 top-0 z-10 transition-all duration-[.2s]"></div>:null}
@@ -31,18 +33,18 @@ const Cart = ({showCart,handleHideCart}:propsI)=>{
                  <div>
                    <p className="text-third text-[1.1rem] capitalize mb-[.5rem]">{name}</p>
                    <div className="border-[1px]  flex justify-between w-[120px] ">
-                    <button className="w-full text-primary border-r-[1px]  py-[.3rem]" >-</button>
+                    <button onClick={handleRemoveProduct(name,productAmount,price)} className="w-full text-primary border-r-[1px]  py-[.3rem]" >-</button>
                     <input type="number" name="empty"  className="w-full focus:outline-0 text-center text-primary" value={productAmount}/>
-                    <button className="w-full text-primary border-l-[1px]">+</button>
+                    <button onClick={handleAddProduct(name,productAmount,price)} className="w-full text-primary border-l-[1px]">+</button>
                 </div>
                  </div>
                 </div>
                 <div className="flex flex-col gap-[1.3rem]" >
-                <button className="self-end border-fourth border-[1px] w-[23px] h-[23px] rounded-full flex flex-col justify-center items-center">
+                <button onClick={handleDeleteProduct(name)} className="self-end border-fourth border-[1px] w-[23px] h-[23px] rounded-full flex flex-col justify-center items-center">
                <Close color="#979a9b" size="17px" />
                      </button>
                  <p className="text-fourth text-[1.1rem] font-poppins">
-                   ${price.toFixed(2)}
+                   ${(price*productAmount).toFixed(2)}
                  </p>
                 </div>
              </div>
@@ -63,9 +65,13 @@ const Cart = ({showCart,handleHideCart}:propsI)=>{
                <p className="font-poppins text-fourth text-[1.1rem]">${totalPrice.toFixed(2)}</p>
              </div>
              <div className="py-[1.2rem] px-[1.3rem] flex flex-col gap-[.8rem]">
-             <button className="uppercase font-poppins tracking-widest bg-fifth text-primary border-[1px] border-primary text-center w-full py-[.9rem] font-semibold text-[1.12rem] transition-all duration-[.2s] ease-in-out hover:text-third hover:border-third  focus:text-third focus:border-third">
+            <Link href="/cart" >
+            <a>
+             <button onClick={handleHideCart} className="uppercase font-poppins tracking-widest bg-fifth text-primary border-[1px] border-primary text-center w-full py-[.9rem] font-semibold text-[1.12rem] transition-all duration-[.2s] ease-in-out hover:text-third hover:border-third  focus:text-third focus:border-third">
                view cart
              </button>
+            </a>
+            </Link>
              <button className="uppercase font-poppins tracking-widest bg-primary text-fifth text-center w-full py-[1rem] font-semibold text-[1.12rem] transition-all duration-[.2s] ease-in-out hover:bg-third focus:bg-third">
                checkout
              </button>

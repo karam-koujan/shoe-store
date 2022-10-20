@@ -39,7 +39,7 @@ const ShoppingCartProvider = ({children}:propsI)=>{
 
 const useShoppingCart = ()=>{
      const context = React.useContext(ShoppingCartContext);
-     if(context===undefined){
+     if(context===null){
         throw new Error("the component may be not inside the context provider")
      }
      return context

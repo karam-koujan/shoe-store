@@ -24,9 +24,17 @@ const Header = ()=>{
      <nav className="flex items-center  justify-between ">
      <Hamburger className="hidden md:block" color="#6e7051" onClick={()=>setShowNavBar(true)}/>
      <MobileNavLinks show={showNavBar} setShowNavBar={handleShowNavBar} />
+     <Link href="/">
+     <a className="hidden md:block">
      <Logo className="hidden md:block translate-y-[13%]" width={126} height={30}/>
+     </a>
+     </Link>
       <div className="flex items-center gap-[3.5rem] md:hidden">
+        <Link href="/">
+        <a>
       <Logo className="md:hidden" width={139} height={24} />
+        </a>
+        </Link>
       <ul className="flex  gap-[1.8rem] ">
        {navItem.slice(0,navItem.length-2).map((item,idx)=>(
        <li key={idx} className="text-fourth uppercase font-inter text-[0.88rem] font-semibold transition-all duration-[.5s]">
