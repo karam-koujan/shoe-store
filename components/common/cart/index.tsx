@@ -10,7 +10,7 @@ interface propsI{
     handleHideCart: ()=>any;
 }
 const Cart = ({showCart,handleHideCart}:propsI)=>{
-  const {shoppingCart,_} = useShoppingCart()
+  const {shoppingCart,_} = useShoppingCart();
   const totalPrice = shoppingCart.reduce((acc:number,{price}:{price:number})=>acc+price,0)
     return(
         <React.Fragment>
@@ -42,7 +42,7 @@ const Cart = ({showCart,handleHideCart}:propsI)=>{
                <Close color="#979a9b" size="17px" />
                      </button>
                  <p className="text-fourth text-[1.1rem] font-poppins">
-                   ${price}
+                   ${price.toFixed(2)}
                  </p>
                 </div>
              </div>
@@ -60,7 +60,7 @@ const Cart = ({showCart,handleHideCart}:propsI)=>{
            (<div>
              <div className="flex justify-between px-[1.3rem] py-[1rem] border-t-[1px] border-b-[1px] border-lightGrey">
                <p className="font-poppins text-[1.1rem] text-third capitalize">subtotal:</p>
-               <p className="font-poppins text-fourth text-[1.1rem]">${totalPrice}</p>
+               <p className="font-poppins text-fourth text-[1.1rem]">${totalPrice.toFixed(2)}</p>
              </div>
              <div className="py-[1.2rem] px-[1.3rem] flex flex-col gap-[.8rem]">
              <button className="uppercase font-poppins tracking-widest bg-fifth text-primary border-[1px] border-primary text-center w-full py-[.9rem] font-semibold text-[1.12rem] transition-all duration-[.2s] ease-in-out hover:text-third hover:border-third  focus:text-third focus:border-third">

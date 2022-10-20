@@ -9,7 +9,7 @@ import americanExpress from "../../../asset/images/svg/americanexpress.svg";
 import discover from   "../../../asset/images/svg/discover.svg";
 import ProductI from "../../../types/product";
 import { useShoppingCart } from "../../../context/shoppingCartContext";
-
+import {useLocalStorage} from "../../../hooks";
 
 interface propsI{
     product:ProductI
@@ -17,30 +17,41 @@ interface propsI{
 const ProductInfo = ({product:{name,rating,sale,price,description,categories,image}}:propsI)=>{
     const [productAmount,setProductAmount] = React.useState(1);
     const [isProductAdded,setIsProductAdded] = React.useState(false)
+    const [_,setLocalStorage] = useLocalStorage("shoppingCart");
+    const {shoppingCart,setShoppingCart} = useShoppingCart()
+    React.useEffect(()=>{
+      const isProductExist = shoppingCart.some((product:ProductI)=>product.name===name)
+        setIsProductAdded(isProductExist)
+    },[shoppingCart])
+
+    
     const handleAddProduct = ()=>{ 
-        setProductAmount(productAmount+1)
+         setProductAmount(productAmount+1)
          const updatedShoppingCart = shoppingCart.map((product:ProductI)=>product.name===name?{...product,productAmount:productAmount+1,price:(productAmount+1)*price}:product)    
-        setShoppingCart(updatedShoppingCart)
+         setShoppingCart(updatedShoppingCart)
+         setLocalStorage(updatedShoppingCart)
         }
     const handleRemoveProduct = ()=>{
         if(productAmount-1  > 0 ){
             setProductAmount(productAmount-1)
             const updatedShoppingCart = shoppingCart.map((product:ProductI)=>product.name===name?{...product,productAmount:productAmount-1,price:(productAmount-1)*price}:product)    
             setShoppingCart(updatedShoppingCart)
+            setLocalStorage(updatedShoppingCart)
         }
     }
     
-    const {shoppingCart,setShoppingCart} = useShoppingCart()
     const handleAddToCart = ()=>{
             if(!isProductAdded){
                 setShoppingCart([...shoppingCart,{name,productAmount,price:price*productAmount,image}])
-               setIsProductAdded(true)
+                setLocalStorage([...shoppingCart,{name,productAmount,price:price*productAmount,image}])
+
+                setIsProductAdded(true)
             }           
     
         }
     
     return(
-        <article className="pb-[3rem] flex justify-between  gap-[3rem] lg:gap-[2rem] md:flex-col" key={name}>
+        <article className="pb-[3rem] flex justify-between  gap-[3rem] lg:gap-[2rem] md:flex-col" >
         <ImageMagnifier imgUrl={`${process.env.NEXT_PUBLIC_API_URL}${image.data.attributes.url}`}>
         {sale!=null?(<div className="bg-primary w-[60px] h-[60px] rounded-full flex justify-center items-center absolute top-[-2%] left-[-4%] md:w-[50px] md:h-[50px] md:left-[-3%] xsm:w-[40px] xsm:h-[40px] xsm:top-[-6%]">
          <span className="text-fifth text-[1.2rem] capitalize md:text-[1.1rem] xsm:text-[.9rem]">
@@ -71,10 +82,10 @@ const ProductInfo = ({product:{name,rating,sale,price,description,categories,ima
             </div>
             <div className="text-fourth">
                 {sale?(<span className="text-[1.8rem] font-inter mr-[.3rem] line-through opacity-40">
-                  ${sale*productAmount}
+                  ${(sale*productAmount).toFixed(2)}
                 </span>):null}
                     <span className="text-[1.8rem] font-semibold font-inter mr-[.3rem]">
-                    ${price *productAmount}
+                    ${(price *productAmount).toFixed(2)}
                     </span>
                     <span className="capitalize  text-[1.1rem]">
                     & free shipping

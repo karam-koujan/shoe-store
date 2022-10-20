@@ -1,6 +1,8 @@
-
+import { useShoppingCart } from "../../context/shoppingCartContext";
 
 const TotalCart = ()=>{
+    const {shoppingCart} = useShoppingCart();
+    const totalPrice = shoppingCart.reduce((acc:number,{price}:{price:number})=>acc+price,0)
      return(
     
         <table className="border-fourth border-[.5px]  md:w-full">
@@ -18,7 +20,7 @@ const TotalCart = ()=>{
                 subtotal
             </td>
             <td className="pr-[1rem] pt-[2rem] pb-[.8rem]">
-                $69.00
+                ${totalPrice.toFixed(2)}
             </td>
           
         </tr>
@@ -27,7 +29,7 @@ const TotalCart = ()=>{
                 total
             </td>
             <td className="pr-[1rem] py-[.8rem]">
-                $69.00
+                ${totalPrice.toFixed(2)}
             </td>
         </tr>
         <tr className="text-fourth text-[1.1rem] font-inter ">
