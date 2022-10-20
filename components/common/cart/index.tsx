@@ -1,6 +1,6 @@
 import * as React from "react";
 import Image from "next/image";
-import { Close } from "../icons";
+import { Close,ProductAmount} from "../";
 import { useShoppingCart } from "../../../context/shoppingCartContext";
 import { useShoppingCartLogic} from "../../../hooks";
 import Link from "next/link";
@@ -32,11 +32,8 @@ const Cart = ({showCart,handleHideCart}:propsI)=>{
                  <Image src={`${process.env.NEXT_PUBLIC_API_URL}${image.data.attributes.url}`} alt={`${name} image`} width={70} height={70}/>
                  <div>
                    <p className="text-third text-[1.1rem] capitalize mb-[.5rem]">{name}</p>
-                   <div className="border-[1px]  flex justify-between w-[120px] ">
-                    <button onClick={handleRemoveProduct(name,productAmount,price)} className="w-full text-primary border-r-[1px]  py-[.3rem]" >-</button>
-                    <input type="number" name="empty"  className="w-full focus:outline-0 text-center text-primary" value={productAmount}/>
-                    <button onClick={handleAddProduct(name,productAmount,price)} className="w-full text-primary border-l-[1px]">+</button>
-                </div>
+                    <ProductAmount add={handleAddProduct(name,productAmount,price)} remove={handleRemoveProduct(name,productAmount,price)} productAmount={productAmount}/>
+                  
                  </div>
                 </div>
                 <div className="flex flex-col gap-[1.3rem]" >

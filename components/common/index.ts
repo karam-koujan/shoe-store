@@ -5,6 +5,7 @@ import Layout from "./layout";
 import Rating from "./rating";
 import MultiRangeSlider from "./multiRangeSlider";
 import Cart from "./cart";
+import ProductAmount from "./productAmount";
 import { 
    Men,
    BestSellers,
@@ -25,5 +26,6 @@ export {
    RelatedProducts,
    MultiRangeSlider,
    Rating,
-   Cart
+   Cart,
+   ProductAmount
 }

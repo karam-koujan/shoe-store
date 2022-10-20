@@ -1,7 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ImageMagnifier } from "../../common";
+import { ImageMagnifier, ProductAmount } from "../../common";
 import Rating from "../../common/rating";
 import visa from "../../../asset/images/svg/visa.svg"
 import masterCard from "../../../asset/images/svg/mastercard.svg";
@@ -96,11 +96,8 @@ const ProductInfo = ({product:{name,rating,sale,price,description,categories,ima
            {description}
             </p>
             <div className="flex  py-[.8rem] gap-[1.5rem] sm:flex-col">
-                <div className="border-[1px]  flex justify-between w-[120px] self-start sm:self-center ">
-                    <button className="w-full text-primary border-r-[1px]  py-[.3rem]" onClick={handleRemoveProduct}>-</button>
-                    <input type="number" name={`number of ${productAmount}`}  className="w-full focus:outline-0 text-center text-primary" value={productAmount}/>
-                    <button className="w-full text-primary border-l-[1px]" onClick={handleAddProduct}>+</button>
-                </div>
+                <ProductAmount className="border-[1px]  flex justify-between w-[120px] self-start sm:self-center" remove={handleRemoveProduct} productAmount={productAmount} add={handleAddProduct}/>
+                
                 <button onClick={handleAddToCart} disabled={isProductAdded}  className={"bg-primary py-[.5em] px-[1.2em] text-center uppercase font-bold text-[1.1rem] text-fifth tracking-[.1rem] transition-all duration-[.3s] ease-in-out hover:bg-third focus:bg-third " + `${isProductAdded?"opacity-[.50]":""}`}>
                     add to cart
                 </button>

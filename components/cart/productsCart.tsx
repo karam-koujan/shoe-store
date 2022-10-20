@@ -1,7 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { useShoppingCart } from "../../context/shoppingCartContext";
-import { Close } from "../common";
+import { Close, ProductAmount } from "../common";
 import { useShoppingCartLogic } from "../../hooks";
 const ProductsCart = ()=>{
     const {shoppingCart,setShoppingCart} = useShoppingCart();
@@ -41,11 +41,8 @@ const ProductsCart = ()=>{
                 <p className="text-fourth text-[1.1rem] text-center font-poppins">${price.toFixed(2)}</p>
             </td>
             <td className="p-[1rem] ">
-            <div className="mx-auto border-[1px]  flex justify-between w-[120px] self-start sm:self-center ">
-                <button onClick={handleRemoveProduct(name,productAmount,price)} className="w-full text-primary border-r-[1px]  py-[.3rem]" >-</button>
-                <input type="number" name="empty"  className="w-full focus:outline-0 text-center text-primary" value={productAmount}/>
-                <button onClick={handleAddProduct(name,productAmount,price)} className="w-full text-primary border-l-[1px]">+</button>
-            </div>
+                <ProductAmount add={handleAddProduct(name,productAmount,price)} className="mx-auto border-[1px]  flex justify-between w-[120px] self-start sm:self-center " remove={handleRemoveProduct(name,productAmount,price)} productAmount={productAmount}/>
+         
             </td>
             <td className="p-[1rem]">
                 <div className="flex justify-between gap-[.5rem]">
