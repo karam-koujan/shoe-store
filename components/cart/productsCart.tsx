@@ -31,7 +31,7 @@ const ProductsCart = ()=>{
             <tr key={idx}>
             <td className="p-[1rem]">
                 <div className="flex gap-[2.2rem] items-center md:items-center md:gap-[1.2rem] ">
-                    <Image src={`${process.env.NEXT_PUBLIC_API_URL}${image.data.attributes.url}`} alt={`${name} image`}  width={70} height={70}/>
+                    <Image src={`${image.data.attributes.url}`} alt={`${name} image`}  width={70} height={70}/>
                   <p className=" text-primary text-capitalize text-[1.1rem] md:items-center md:text-[1rem]">
                   {name}
                   </p>

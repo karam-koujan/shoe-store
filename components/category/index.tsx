@@ -2,9 +2,8 @@ import * as React from "react";
 import * as qs from "qs";
 import {Close,Hamburger,Men} from "../common/"; 
 import Filter from "./filter";
-import { useFetchQuery } from "../../hooks";
 import {useQueryClient,QueryClient} from "react-query";
-const Category = ()=>{
+const Category = ({categoryName,CategoryComponent})=>{
    const queryClient = useQueryClient();
 
    const [showCollection,setShowCollection] = React.useState(false)
@@ -144,8 +143,8 @@ const Category = ()=>{
     return(
        <section className="container container-primary-px bg-lightGrey py-[3rem] mb-[3rem]" tabIndex={-1}>
        <div className="container px-[3rem] bg-fifth pt-[3rem] pb-[10rem]">
-          <h1 className="font-poppins font-medium text-[1.9rem] text-primary pb-[1.8rem]">
-             Men
+          <h1 className="capitalize font-poppins font-medium text-[1.9rem] text-primary pb-[1.8rem]">
+              {categoryName}
           </h1>
        <div className="flex justify-between mb-[3.5rem]">
           <div className="flex gap-[1.3rem] items-center">
@@ -167,7 +166,7 @@ const Category = ()=>{
              </select>
            
           </div>
-         <Men  filter={qs.stringify(filter)}/>
+         <CategoryComponent  filter={qs.stringify(filter)}/>
 
        <Filter handleDeleteCollection={handleDeleteCollection} showCollection={showCollection} handleSelectAverageRating={handleSelectAverageRating} handleSelectCategory={handleSelectCategory} handleSelectPrice={handleSelectPrice}/>
           </div>

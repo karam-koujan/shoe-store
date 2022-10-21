@@ -15,7 +15,7 @@ import ShoppingCartI from "../../../types/shoppingCart";
 interface propsI{
     product:ProductI
 }
-const ProductInfo = ({product:{name,rating,sale,price,description,categories,image}}:propsI)=>{
+const ProductInfo = ({product:{name,rating,sale,price,description,categories,image,imageMagnifier}}:propsI)=>{
     const [productAmount,setProductAmount] = React.useState(1);
     const [isProductAdded,setIsProductAdded] = React.useState(false)
     const [_,setLocalStorage] = useLocalStorage("shoppingCart");
@@ -53,7 +53,7 @@ const ProductInfo = ({product:{name,rating,sale,price,description,categories,ima
     
     return(
         <article className="pb-[3rem] flex justify-between  gap-[3rem] lg:gap-[2rem] md:flex-col" >
-        <ImageMagnifier imgUrl={`${process.env.NEXT_PUBLIC_API_URL}${image.data.attributes.url}`}>
+        <ImageMagnifier imgUrl={`${imageMagnifier.data.attributes.url}`}>
         {sale!=null?(<div className="bg-primary w-[60px] h-[60px] rounded-full flex justify-center items-center absolute top-[-2%] left-[-4%] md:w-[50px] md:h-[50px] md:left-[-3%] xsm:w-[40px] xsm:h-[40px] xsm:top-[-6%]">
          <span className="text-fifth text-[1.2rem] capitalize md:text-[1.1rem] xsm:text-[.9rem]">
           sale!

@@ -29,7 +29,7 @@ const Cart = ({showCart,handleHideCart}:propsI)=>{
              {shoppingCart.map(({name,productAmount,image,price}:any,idx:number)=>(
              <div className="flex justify-between" key={idx}>
                 <div className="flex gap-[1.3rem]">
-                 <Image src={`${process.env.NEXT_PUBLIC_API_URL}${image.data.attributes.url}`} alt={`${name} image`} width={70} height={70}/>
+                 <Image src={`${image.data.attributes.url}`} alt={`${name} image`} width={70} height={70}/>
                  <div>
                    <p className="text-third text-[1.1rem] capitalize mb-[.5rem]">{name}</p>
                     <ProductAmount add={handleAddProduct(name,productAmount,price)} remove={handleRemoveProduct(name,productAmount,price)} productAmount={productAmount}/>

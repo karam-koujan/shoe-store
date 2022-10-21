@@ -38,7 +38,7 @@ const Header = ()=>{
       <ul className="flex  gap-[1.8rem] ">
        {navItem.slice(0,navItem.length-2).map((item,idx)=>(
        <li key={idx} className="text-fourth uppercase font-inter text-[0.88rem] font-semibold transition-all duration-[.5s]">
-         <Link href="">
+         <Link href={`/${idx<2?item:"#"}`}>
          <a className=" text-fourth transition-all duration-[.5s] hover:text-third focus:text-third">
           {item}
          </a>

@@ -2,11 +2,11 @@ import * as React from "react";
 import { useFetchQuery } from "../../../hooks";
 import Link from "next/link";
 import Product from "./product";
+import { fakeProducts } from "../../../content/fakeProducts";
 
 
 const BestSellers = ()=>{
    const {data,isLoading} = useFetchQuery("bestSellers",`${process.env.NEXT_PUBLIC_API_URL}/api/products?populate=*`)
-   if(isLoading) return null
   
   return(
      <section className="container container-primary-px" tabIndex={-1}> 
@@ -21,7 +21,7 @@ const BestSellers = ()=>{
                 </a>
                 </Link>
             </div>
-          <Product />
+          <Product fakeProducts={fakeProducts}/>
         </div>
      </section>
   ) 

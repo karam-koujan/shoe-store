@@ -11,7 +11,7 @@ import {
    BestSellers,
    NewArrivals,
    Product,
-   RelatedProducts} from "./products";
+   RelatedProducts,Women} from "./products";
 export {
    Hamburger,
    ShoppingCartIcon,
@@ -27,5 +27,6 @@ export {
    MultiRangeSlider,
    Rating,
    Cart,
-   ProductAmount
+   ProductAmount,
+   Women
 }
