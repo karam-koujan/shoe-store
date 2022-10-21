@@ -26,7 +26,9 @@ const ShoppingCartProvider = ({children}:propsI)=>{
     React.useEffect(()=>{
         const [data] = useLocalStorage<shoppingCartI[]>("shoppingCart");
         console.log("data",data)
-          setShoppingCart(data as shoppingCartI[])
+        if(data!==null){
+            setShoppingCart(data as shoppingCartI[])
+        }  
         
   
     },[])
