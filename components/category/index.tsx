@@ -166,9 +166,9 @@ const Category = ({categoryName,CategoryComponent})=>{
              </select>
            
           </div>
+       <Filter categoryName={categoryName} handleDeleteCollection={handleDeleteCollection} showCollection={showCollection} handleSelectAverageRating={handleSelectAverageRating} handleSelectCategory={handleSelectCategory} handleSelectPrice={handleSelectPrice}/>
          <CategoryComponent  filter={qs.stringify(filter)}/>
 
-       <Filter handleDeleteCollection={handleDeleteCollection} showCollection={showCollection} handleSelectAverageRating={handleSelectAverageRating} handleSelectCategory={handleSelectCategory} handleSelectPrice={handleSelectPrice}/>
           </div>
           </section>
     )
