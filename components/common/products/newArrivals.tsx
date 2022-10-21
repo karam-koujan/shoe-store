@@ -20,7 +20,7 @@ const NewArrivals = ()=>{
                 </a>
                 </Link>
             </div>
-          <Product products={data.data}/>
+          <Product />
         </div>
      </section>
     )

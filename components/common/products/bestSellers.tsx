@@ -21,7 +21,7 @@ const BestSellers = ()=>{
                 </a>
                 </Link>
             </div>
-          <Product products={data.data}/>
+          <Product />
         </div>
      </section>
   ) 
