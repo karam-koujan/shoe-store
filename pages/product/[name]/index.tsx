@@ -45,7 +45,7 @@ const Index:NextPage = ({product}:any)=>{
                 </ul>
                 {
                     sectionType === "description" ? (
-                      <Description description={product.description}/>
+                      <Description  />
                     ):
                     (
                     <Reviews/>
