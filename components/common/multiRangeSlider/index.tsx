@@ -66,7 +66,7 @@ const MultiRangeSlider = ({ min, max,step, onChange }:propsI) => {
           minValRef.current = value;
         }}
         className="thumb thumb--left"
-        style={{ zIndex: minVal > max - 100 ? "5" : "" }}
+        style={{ zIndex: minVal > max - 100 ? "5" : "1" }}
       />
       <input
         type="range"

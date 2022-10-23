@@ -24,7 +24,7 @@ const Product = ({fakeProducts}:any)=>{
     
     return(
 
-        <div  className="grid grid-cols-auto-fit gap-[1.5rem] gap-y-[3rem] sm:gap-y-[1.5rem]">
+        <div  className={"grid gap-[1.5rem] gap-y-[3rem] sm:gap-y-[1.5rem] "+`${fakeProducts.length<3?" grid-cols-auto-fit-lg md:grid-cols-auto-fit":" grid-cols-auto-fit"}`}>
         {
             fakeProducts.map((product:any)=>(
 

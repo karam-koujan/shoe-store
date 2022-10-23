@@ -8,7 +8,7 @@ import { Men } from "../../components/common";
 const Index:NextPage = ()=>{
    
    return(
-   <Category categoryName="men" CategoryComponent={Men}/>
+   <Category key="men" categoryName="men" CategoryComponent={Men}/>
    )
 }
 

@@ -8,12 +8,12 @@ interface propsI{
   data:any;
   generateFilter:any;
 }
-const Men = ({filter}:any)=>{
+const Men = ({filter,products}:any)=>{
 
   const {data,isLoading} = useFetchQuery("bestSellers",`${process.env.NEXT_PUBLIC_API_URL}/api/products?${filter}&populate=*`)
 
     return(
-    <Product fakeProducts={menFakeProducts}/>
+    <Product fakeProducts={products}/>
 
   )
 }

@@ -9,7 +9,7 @@ import {Women} from "../../components/common/";
 const Index:NextPage = ()=>{
    
    return(
-   <Category categoryName="women" CategoryComponent={Women}/>
+   <Category key="women" categoryName="women" CategoryComponent={Women}/>
    )
 }
 

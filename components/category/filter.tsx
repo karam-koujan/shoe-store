@@ -4,17 +4,17 @@ import {Close,Rating,MultiRangeSlider} from "../common/";
 interface propsI{
     handleDeleteCollection : (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>)=>any
     showCollection : boolean;
+    categoryName:string;
+    handleSelectAverageRating:(rating:number)=>()=>void;
+    handleSelectCategory: (category:string[])=>()=>void;
+    handleSelectPrice: any ;
 }
 
 const Filter = ({categoryName,handleDeleteCollection,showCollection,handleSelectAverageRating,handleSelectCategory,handleSelectPrice}:propsI)=>{
-React.useEffect(()=>{
- console.log("categoryName",categoryName)
-},[])   
 
-  // console.log("filter",data)
    return (
-        <div className={"absolute left-[0] top-[0] bottom-[0]  min-h-[100vh] bg-[rgba(0,0,0,0.4)] w-full right-[0]  " + `${showCollection? "opacity-1 z-10 " :" opacity-0 -z-40"}`} >
-        <div className={"bg-white overflow-y-auto  h-[100vh] transition-all duration-[.5s]  right-0 w-full max-w-[325px] px-[1.3rem] py-[1.5rem]"+ `${showCollection? " " :" p-0 w-0"}`} >
+        <div className={"fixed left-[0] top-[0] bottom-[0%]  min-h-[100vh] bg-[rgba(0,0,0,0.4)] w-full right-[0]  " + `${showCollection? "opacity-1 z-10 " :" opacity-0 -z-40"}`} >
+        <div className={"bg-white overflow-y-auto  min-h-[100vh] transition-all duration-[.5s] top-0 bottom-0  right-0 w-full max-w-[325px] px-[1.3rem] py-[1.5rem]"+ `${showCollection? " " :" p-0 w-0"}`} >
            <div className="flex justify-end">
               <Close color="#979a9b" size="24" className="cursor-pointer" onClick={handleDeleteCollection}/>
            </div>
@@ -23,7 +23,7 @@ React.useEffect(()=>{
            </h3>
    
          <div className="mt-[1.5rem]">
-           <MultiRangeSlider max={1000.00} min={40.00} step={0.01} onChange={handleSelectPrice}/>            
+           <MultiRangeSlider max={200.00} min={10.00} step={10} onChange={handleSelectPrice}/>            
           </div>
           {categoryName==="men"?(
           <ul className="text-primary font-poppins mt-[2rem] text-[1.1rem] capitalize">

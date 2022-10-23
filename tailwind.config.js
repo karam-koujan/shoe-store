@@ -35,6 +35,8 @@ module.exports = {
       },
       gridTemplateColumns: {
         'auto-fit': 'repeat(auto-fit, minmax(300px, 1fr))',
+        'auto-fit-lg': 'repeat(3, minmax(300px, 1fr))',
+
       },
     },
   },
