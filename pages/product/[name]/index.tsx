@@ -71,6 +71,7 @@ export async function getStaticProps({params}:contextI){
 
 
   const fakeProducts = bestSellerProduct.concat(menFakeProducts,womenFakeProducts)
+  console.log(fakeProduct)
   const fakeProduct = fakeProducts.filter(({attributes})=>attributes.name===params.name)
   return {
     // Passed to the page component as props
