@@ -62,25 +62,10 @@ const Index:NextPage = ({product}:any)=>{
 
 export async function getStaticPaths(){
   const fakeProducts = bestSellerProduct.concat(menFakeProducts,womenFakeProducts)
-  /*
-    if (process.env.SKIP_BUILD_STATIC_GENERATION) {
-        return {
-          paths: [],
-          fallback: 'blocking',
-        }
-      }
-     */ 
-    //  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`);
-      //const products = await res.json()
-  /*
-      const paths = products.data.map(({attributes}:serverResI)=>({
-          params : {name:attributes.name}
-}))
-*/
+  
 
    const paths = fakeProducts.map(({attributes})=>({params : { name : attributes.name}}))
-   console.log(paths)
-   return {paths,fallback:'blocking'}
+   return {paths,fallback:false}
 }
 
 export async function getStaticProps({params}:contextI) {
@@ -95,13 +80,9 @@ export async function getStaticProps({params}:contextI) {
   }, {
     encodeValuesOnly: true
   });
-  
-   // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products?${query}&populate=*`);
-    //const product = await res.json()
+ 
     const fakeProduct = fakeProducts.filter(({attributes})=>attributes.name===params.name)
-    console.log("fale",fakeProduct,"params",params.name)
     return {
-      // Passed to the page component as props
       props: { product:fakeProduct[0].attributes , key:fakeProduct[0].id},
     }
   }

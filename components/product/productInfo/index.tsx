@@ -108,7 +108,7 @@ const ProductInfo = ({product:{name,rating,sale,price,description,categories,ima
                 categories : 
                 </span>
                 {categories.data.map(({attributes}:any,idx:number)=>(
-                  <Link href="#">
+                  <Link href="#" key={idx}>
                   <a className="text-primary mr-[.3rem] text-[1rem]">
                     {attributes.name}{idx!==categories.data.length-1?",":null}
                   </a>

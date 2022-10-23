@@ -6,7 +6,6 @@ import { fakeProducts } from "../../../content/fakeProducts";
 
 
 const NewArrivals = ()=>{
-    const {data,isLoading} = useFetchQuery("bestSellers",`${process.env.NEXT_PUBLIC_API_URL}/api/products?populate=*`)
     return(
         <section className="container container-primary-px" tabIndex={-1}> 
         <div>

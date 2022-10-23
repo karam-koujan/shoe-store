@@ -7,7 +7,6 @@ import { fakeProducts } from "../../../content/fakeProducts";
 
 
 const RelatedProducts = ()=>{
-    const {data,isLoading} = useFetchQuery("bestSellers",`${process.env.NEXT_PUBLIC_API_URL}/api/products?populate=*`)
 
     return(
       <article className="mt-[3rem]">
