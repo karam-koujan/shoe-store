@@ -80,7 +80,6 @@ export async function getStaticProps({params}:contextI) {
   }, {
     encodeValuesOnly: true
   });
- 
     const fakeProduct = fakeProducts.filter(({attributes})=>attributes.name===params.name)
     return {
       props: { product:fakeProduct[0].attributes , key:fakeProduct[0].id},

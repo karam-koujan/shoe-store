@@ -15,7 +15,7 @@ import ShoppingCartI from "../../../types/shoppingCart";
 interface propsI{
     product:ProductI
 }
-const ProductInfo = ({product:{name,rating,sale,price,description,categories,image,imageMagnifier}}:propsI)=>{
+const ProductInfo = ({product:{name,rating,sale,price,categories,image,imageMagnifier}}:propsI)=>{
     const [productAmount,setProductAmount] = React.useState(1);
     const [isProductAdded,setIsProductAdded] = React.useState(false)
     const [_,setLocalStorage] = useLocalStorage("shoppingCart");
@@ -93,7 +93,7 @@ const ProductInfo = ({product:{name,rating,sale,price,description,categories,ima
                     </span>
             </div>
             <p className="text-fourth text-[1.1rem] mt-[.8rem] leading-8">
-           {description}
+ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur vel ratione ipsa sequi alias soluta reprehenderit facere cumque modi dolor error itaque, nam aliquam fuga. Libero dignissimos sint ut quos.
             </p>
             <div className="flex  py-[.8rem] gap-[1.5rem] sm:flex-col">
                 <ProductAmount className="border-[1px]  flex justify-between w-[120px] self-start sm:self-center" remove={handleRemoveProduct} productAmount={productAmount} add={handleAddProduct}/>
