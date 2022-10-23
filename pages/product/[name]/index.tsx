@@ -65,7 +65,7 @@ export async function getStaticPaths(){
   const paths = fakeProducts.map(({attributes}:serverResI)=>({
     params : {name:attributes.name}
 }))
-return {paths,fallback:false}
+return {paths,fallback:true}
 }
 export async function getStaticProps({params}:contextI){
 
