@@ -2,7 +2,6 @@
 
 interface ProductI{
     name:string;
-    description:string;
     sale: number | null;
     price: number;
     rating: number;

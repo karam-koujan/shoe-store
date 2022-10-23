@@ -18,9 +18,12 @@ interface  paramsI{
 interface contextI{
   params : paramsI
 }
-const Index:NextPage = ({product}:any)=>{
+const Index:NextPage = ({}:any)=>{
     const router = useRouter()
     const {name} = router.query;
+    const fakeProducts = bestSellerProduct.concat(menFakeProducts,womenFakeProducts)
+    const fakeProduct = fakeProducts.filter(({attributes})=>attributes.name===name)
+     const product = fakeProduct[0].attributes 
     const [sectionType,setSectionType] = React.useState("description")
     
     const handleChangeSection = (sectionType:string)=>{
@@ -60,22 +63,5 @@ const Index:NextPage = ({product}:any)=>{
 }
 
 
-export async function getStaticPaths(){
-  const fakeProducts = bestSellerProduct.concat(menFakeProducts,womenFakeProducts)
-  
 
-   const paths = fakeProducts.map(({attributes})=>({params : { name : attributes.name}}))
-   console.log(paths)
-   return {paths,fallback:true}
-}
-
-export async function getStaticProps({params}:contextI) {
-  
-  const fakeProducts = bestSellerProduct.concat(menFakeProducts,womenFakeProducts)
-  
-    const fakeProduct = fakeProducts.filter(({attributes})=>attributes.name===params.name)
-    return {
-      props: { product:fakeProduct[0].attributes , key:fakeProduct[0].id},
-    }
-  }
 export default Index;
