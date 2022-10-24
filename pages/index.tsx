@@ -1,4 +1,3 @@
-import type { NextPage } from 'next';
 import Head from 'next/head';
 import {BestSellers,NewArrivals} from '../components/common/products';
 import {About,Hero,Sponsors,Feedback,Category} from "../components/landing";
