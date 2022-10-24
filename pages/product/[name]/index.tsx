@@ -17,9 +17,14 @@ interface  paramsI{
 interface contextI{
   params : paramsI
 }
-const Index:NextPage = ({product,products}:any)=>{
-  
-    const [sectionType,setSectionType] = React.useState("description")
+const Index:NextPage = ({products,name}:any)=>{
+  const [product,setProduct] = React.useState([]) 
+  const [sectionType,setSectionType] = React.useState("description")
+  React.useEffect(()=>{
+    const fakeProduct = products.filter(({attributes}:any)=>attributes.name===name)
+    console.log("f",fakeProduct)
+    setProduct(fakeProduct[0].attributes)
+  },[])  
     
     const handleChangeSection = (sectionType:string)=>{
         return ()=>{
@@ -30,33 +35,33 @@ const Index:NextPage = ({product,products}:any)=>{
 
    
     return(
-         <section className="container container-primary-px bg-lightGrey py-[3rem] mb-[3rem]" tabIndex={-1}>
-            <div className="container container-primary-px bg-fifth pt-[3rem] pb-[10rem]">
-            <ProductInfo product={product}/>
-             <article>
-                <hr className="before:"/>
-                <ul className="flex gap-[1.4rem]  ">
-                    <li className={"capitalize text-third text-[1.1rem] font-bold py-[.7rem] cursor-pointer border-t-[3px] " + `${sectionType==="description"?"  border-primary ":"border-transparent"}`} onClick={handleChangeSection("description")}>
-                    description 
-                    </li>
-                    <li className={"capitalize text-third text-[1.1rem] font-bold py-[.7rem]  cursor-pointer border-t-[3px] " + `${sectionType==="reviews" ? "  border-primary" : "border-transparent"}`} onClick={handleChangeSection("reviews")}>
-                    reviews (1)
-                    </li>
-                </ul>
-                {
-                    sectionType === "description" ? (
-                      <Description  />
-                    ):
-                    (
-                    <Reviews/>
-                    )
-                }
-               
-             </article>
-            <RelatedProducts products={products}/>
-            </div>
-         </section>
-    )
+      <section className="container container-primary-px bg-lightGrey py-[3rem] mb-[3rem]" tabIndex={-1}>
+      <div className="container container-primary-px bg-fifth pt-[3rem] pb-[10rem]">
+      <ProductInfo product={product}/>
+       <article>
+          <hr className="before:"/>
+          <ul className="flex gap-[1.4rem]  ">
+              <li className={"capitalize text-third text-[1.1rem] font-bold py-[.7rem] cursor-pointer border-t-[3px] " + `${sectionType==="description"?"  border-primary ":"border-transparent"}`} onClick={handleChangeSection("description")}>
+              description 
+              </li>
+              <li className={"capitalize text-third text-[1.1rem] font-bold py-[.7rem]  cursor-pointer border-t-[3px] " + `${sectionType==="reviews" ? "  border-primary" : "border-transparent"}`} onClick={handleChangeSection("reviews")}>
+              reviews (1)
+              </li>
+          </ul>
+          {
+              sectionType === "description" ? (
+                <Description  />
+              ):
+              (
+              <Reviews/>
+              )
+          }
+         
+       </article>
+      <RelatedProducts products={products}/>
+      </div>
+   </section>
+      )
 }
 
 export async function getStaticPaths(){
@@ -77,10 +82,9 @@ export async function getStaticProps({params}:contextI){
   const menFakeProducts = await parseMdFileToObj("menFakeProducts.md")
   const womenFakeProducts = await parseMdFileToObj("womenFakeProducts.md")
   const fakeProducts = bestSellerProduct.data.concat(menFakeProducts.data,womenFakeProducts.data)
-  const fakeProduct = fakeProducts.filter(({attributes}:any)=>attributes.name===params.name)
   return {
     // Passed to the page component as props
-    props: { product: fakeProduct[0].attributes ,products: fakeProducts , key:fakeProduct[0].id},
+    props: {  products: fakeProducts,name:params.name},
   }
 }
 
