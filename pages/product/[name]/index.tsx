@@ -81,7 +81,11 @@ export async function getStaticProps({params}:contextI){
   const bestSellerProduct = await  parseMdFileToObj("fakeProducts.md")
   const menFakeProducts = await parseMdFileToObj("menFakeProducts.md")
   const womenFakeProducts = await parseMdFileToObj("womenFakeProducts.md")
-  const fakeProducts = bestSellerProduct.data.concat(menFakeProducts.data,womenFakeProducts.data)
+  let fakeProducts = []
+  if(bestSellerProduct!==undefined){
+
+   fakeProducts = bestSellerProduct.data.concat(menFakeProducts.data,womenFakeProducts.data)
+  }
   return {
     // Passed to the page component as props
     props: {  products: fakeProducts,name:params.name},
