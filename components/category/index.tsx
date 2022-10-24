@@ -120,7 +120,7 @@ const Category = ({categoryName,CategoryComponent,products}:any)=>{
                 <span>filter shoes</span>
              </button>
              <p className="text-fourth text-[1.1rem] font-inter" >
-                <span className="capitalize">showing</span> all {products.length} results
+                <span className="capitalize">showing</span> all {fakeProducts.length} results
              </p>
           </div>
              <select className="text-primary text-[1.1rem] w-[180px] bg-transparent focus:outline-none" aria-label="shop order">
@@ -146,7 +146,7 @@ const Category = ({categoryName,CategoryComponent,products}:any)=>{
         ):null}  
        <Filter categoryName={categoryName} handleDeleteCollection={handleDeleteCollection} showCollection={showCollection} handleSelectAverageRating={handleSelectAverageRating} handleSelectCategory={handleSelectCategory} handleSelectPrice={handleSelectPrice}/>
          <CategoryComponent key={categoryName} products={fakeProducts}   filter={qs.stringify(filter)}/>
-           {products.length===0?<p className="text-primary mx-auto w-content-fit text-center capitalize text-[1.4rem]">no result</p>:null}
+           {fakeProducts.length===0?<p className="text-primary mx-auto w-content-fit text-center capitalize text-[1.4rem]">no result</p>:null}
           </div>
           </section>
     )

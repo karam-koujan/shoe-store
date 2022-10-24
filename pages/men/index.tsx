@@ -11,7 +11,7 @@ interface propsI{
 const Index = ({products}:propsI)=>{
    
    return(
-   <Category key="men" categoryName="men" CategoryComponent={Men}/>
+   <Category key="men" categoryName="men" CategoryComponent={Men} products={products}/>
    )
 }
 
