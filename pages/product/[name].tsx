@@ -87,7 +87,8 @@ export async function getStaticProps({params}:contextI){
   console.log("women",womenFakeProducts)
 
   const fakeProducts = bestSellerProduct.data.concat(menFakeProducts.data,womenFakeProducts.data)
-  
+  console.log("w",fakeProducts)
+
   return {
     // Passed to the page component as props
     props: {  products: fakeProducts,name:params.name},
