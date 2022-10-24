@@ -1,10 +1,10 @@
 import * as React   from "react";
-import {useRouter} from "next/router";
 import type { NextPage } from 'next';
 import {RelatedProducts} from "../../components/common/";
 import { Description, Reviews, ProductInfo } from "../../components/product";
 import ProductI from "../../types/product";
 import parseMdFileToObj from "../../lib/parseMdFileToObj";
+import SEO from "../../components/common/SEO";
 
 
 
@@ -19,9 +19,7 @@ interface contextI{
 }
 const Index:NextPage = ({product,products}:any)=>{
   const [sectionType,setSectionType] = React.useState("description")
-   React.useEffect(()=>{
-    console.log(products)
-   },[])
+  
     const handleChangeSection = (sectionType:string)=>{
         return ()=>{
             setSectionType(sectionType)
@@ -31,6 +29,8 @@ const Index:NextPage = ({product,products}:any)=>{
 
    
     return(
+      <React.Fragment>
+        <SEO title={product.name} name={product.name} image={product.image} url={""} description={product.name}/>
       <section className="container container-primary-px bg-lightGrey py-[3rem] mb-[3rem]" tabIndex={-1}>
       <div className="container container-primary-px bg-fifth pt-[3rem] pb-[10rem]">
       <ProductInfo product={product}/>
@@ -57,6 +57,7 @@ const Index:NextPage = ({product,products}:any)=>{
       <RelatedProducts products={products}/>
       </div>
    </section>
+   </React.Fragment>
       )
 }
 
