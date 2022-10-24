@@ -1,73 +1,74 @@
-const menFakeProducts = [
+--- 
+[
     {   
     
-       id:1,
+       id: 1,
        attributes: {
         categories : {
           data : [
            {
              attributes : {
-               name :"running"
+               name : "training"
              }
             
            },
            {
-            attributes:{
-              name:"men"
+            attributes: {
+              name: "women"
             }
            }
           ]
        },
-           name : "men's black running",
-           price:79.00,
-           sale:null,
-           rating:5,
-           image:{
+           name : "women's green training",
+           price: 49.00,
+           sale: 64.00,
+           rating: 5,
+           image: {
                data: {
                    attributes : {
-                       url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-005-400x400.jpg" 
+                       url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-001-400x400.jpg"
                    }
                }
            },
-           imageMagnifier:{
+           imageMagnifier: {
             data: {
                 attributes : {
-                    url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-005.jpg"
+                    url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-001.jpg"
                 }
             }
         }
        }
     },
     {
-       id:2,
+       id: 2,
        attributes: {
         categories : {
           data : [
            {
              attributes : {
-               name :"running"
+               name : "running"
              }
             
            },
            {
-            attributes:{
-              name:"men"
+            attributes: {
+              name: "men"
             }
            }
           ]
        },   
         name : "men’s red running",
-           price:69.00,
-           sale:79.00,
-           rating:4,
-           image:{
+           price: 69.00,
+           sale: 79.00,
+           rating: 4,
+           image: {
                data: {
                    attributes : {
                        url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-006-400x400.jpg"
                    }
                }
            },
-           imageMagnifier:{
+           imageMagnifier : {
             data: {
                 attributes : {
                     url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-006.jpg"
@@ -77,35 +78,35 @@ const menFakeProducts = [
        }
     },
     {  
-       id:3,
+       id: 3,
        attributes: {
         categories : {
           data : [
            {
              attributes : {
-               name :"classic"
+               name : "classic"
              }
             
            },
            {
-            attributes:{
-              name:"men"
+            attributes: {
+              name: "men"
             }
            }
           ]
        },
            name : "men's classic mint",
-           price:79.00,
-           sale:null,
-           rating:3,
-           image:{
+           price: 79.00,
+           sale: null,
+           rating: 3,
+           image: {
                data: {
                    attributes : {
                        url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-020-400x400.jpg"
                    }
                }
            },
-           imageMagnifier:{
+           imageMagnifier: {
             data: {
                 attributes : {
                     url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-020.jpg"
@@ -115,73 +116,73 @@ const menFakeProducts = [
        }
     },
     {  
-       id:4,
+       id: 4,
        attributes: {
         categories : {
           data : [
            {
              attributes : {
-               name :"classic"
+               name : "training"
              }
             
            },
            {
-            attributes:{
-              name:"men"
+            attributes: {
+              name: "women"
             }
            }
           ]
        },
-           name : "men's classic blue",
-           price:75.80,
-           sale:89.90,
-           rating:3,
-           image:{
+           name : "women's pink training",
+           price: 54.80,
+           sale: 64.90,
+           rating: 4,
+           image: {
                data: {
                    attributes : {
-                       url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-019-400x400.jpg"
-                   }   
+                       url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-002-400x400.jpg"
+                   }
                }
            },
-           imageMagnifier:{
+           imageMagnifier: {
             data: {
                 attributes : {
-                    url :"https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-019.jpg"
-                }    
+                    url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-002-400x400.jpg"
+                }
             }
         }
        }
     },
     {  
-       id:5,
+       id: 5,
        attributes: {
         categories : {
           data : [
            {
              attributes : {
-               name :"running"
+               name : "running"
              }
             
            },
            {
-            attributes:{
-              name:"men"
+            attributes: {
+              name: "men"
             }
            }
           ]
        },
            name : "men's navy running",
-           price:104.80,
-           sale:null,
-           rating:3,
-           image:{
+           price: 104.80,
+           sale: null,
+           rating: 3,
+           image: {
                data: {
                    attributes : {
                        url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-008-400x400.jpg"
                    }
                }
            },
-           imageMagnifier:{
+           imageMagnifier: {
             data: {
                 attributes : {
                     url :"https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-008.jpg"
@@ -191,28 +192,28 @@ const menFakeProducts = [
        }
     },
     {   
-       id:6,
+       id: 6,
        attributes: {
         categories : {
           data : [
            {
              attributes : {
-               name :"running"
+               name : "running"
              }
             
            },
            {
-            attributes:{
-              name:"men"
+            attributes: {
+              name: "men"
             }
            }
           ]
        },
            name : "men's green running",
-           price:89.80,
-           sale:104,
-           rating:5,
-           image:{
+           price: 89.80,
+           sale: 104,
+           rating: 5,
+           image: {
                data: {
                    attributes : {
                        url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-007-400x400.jpg"
@@ -224,4 +225,4 @@ const menFakeProducts = [
    
    ]
 
-export {menFakeProducts} 
+--- 

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/qs": "^6.9.7",
+    "gray-matter": "^4.0.3",
     "next": "12.3.0",
     "qs": "^6.11.0",
     "react": "18.2.0",

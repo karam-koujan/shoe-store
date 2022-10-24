@@ -1,11 +1,12 @@
 import { useFetchQuery } from "../../../hooks";
 import Link from "next/link";
 import Product from "./product";
-import { fakeProducts } from "../../../content/fakeProducts";
+import ProductI from "../../../types/product";
 
-
-
-const NewArrivals = ()=>{
+interface propsI{
+    products : ProductI[]
+ }
+const NewArrivals = ({products}:propsI)=>{
     return(
         <section className="container container-primary-px" tabIndex={-1}> 
         <div>
@@ -19,7 +20,7 @@ const NewArrivals = ()=>{
                 </a>
                 </Link>
             </div>
-          <Product fakeProducts={fakeProducts}/>
+          <Product fakeProducts={products}/>
         </div>
      </section>
     )
