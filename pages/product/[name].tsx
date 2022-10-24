@@ -17,15 +17,11 @@ interface  paramsI{
 interface contextI{
   params : paramsI
 }
-const Index:NextPage = ({products,name}:any)=>{
-  const [product,setProduct] = React.useState([]) 
+const Index:NextPage = ({product,products}:any)=>{
   const [sectionType,setSectionType] = React.useState("description")
-  React.useEffect(()=>{
-    const fakeProduct = products.filter(({attributes}:any)=>attributes.name===name)
-    console.log("f",fakeProduct)
-    setProduct(fakeProduct[0].attributes)
-  },[])  
-    
+   React.useEffect(()=>{
+    console.log(products)
+   },[])
     const handleChangeSection = (sectionType:string)=>{
         return ()=>{
             setSectionType(sectionType)
@@ -87,11 +83,14 @@ export async function getStaticProps({params}:contextI){
   console.log("women",womenFakeProducts)
 
   const fakeProducts = bestSellerProduct.data.concat(menFakeProducts.data,womenFakeProducts.data)
-  console.log("w",fakeProducts)
+ 
+    const fakeProduct = fakeProducts.filter(({attributes}:any)=>attributes.name===params.name)
+   
+    
 
   return {
     // Passed to the page component as props
-    props: {  products: fakeProducts,name:params.name},
+    props: {  product: fakeProduct[0].attributes,products:fakeProducts,name:params.name},
   }
 }
 
