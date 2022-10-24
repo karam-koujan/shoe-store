@@ -23,7 +23,7 @@ const Category = ({categoryName,CategoryComponent,products}:any)=>{
         price.current = {min,max}
 
         let filteredProducts = initialProducts.filter(product=>product.attributes.price<=price.current.max&& product.attributes.price>=price.current.min)     
-        if(products.length===0){
+        if(fakeProducts.length===0){
            filteredProducts = initialProducts.filter(product=>product.attributes.price<=price.current.max&& product.attributes.price>=price.current.min)     
         }
         setProducts(filteredProducts)
@@ -31,7 +31,7 @@ const Category = ({categoryName,CategoryComponent,products}:any)=>{
       },[])
     const handleSelectAverageRating = (rating:number)=> ()=>{
       let filteredProducts = products.filter(product=>product.attributes.rating===rating)     
-      if(products.length===0){
+      if(fakeProducts.length===0){
          filteredProducts = initialProducts.filter(product=>product.attributes.rating===rating)
       }
       setAverageRating(rating)
@@ -41,7 +41,7 @@ const Category = ({categoryName,CategoryComponent,products}:any)=>{
     const handleSelectCategory = (category:string[])=> ()=>{
 
       let filteredProducts = products.filter(product=>product.attributes.categories.data.filter(({attributes})=>category.indexOf(attributes.name)!== -1).length == 2)   
-      if(products.length===0){
+      if(fakeProducts.length===0){
        filteredProducts = initialProducts.filter(product=>product.attributes.categories.data.filter(({attributes})=>category.indexOf(attributes.name)!== -1).length == 2)     
 
       }
