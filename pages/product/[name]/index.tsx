@@ -69,26 +69,20 @@ export async function getStaticPaths(){
   const bestSellerProduct = await  parseMdFileToObj("fakeProducts.md")
   const menFakeProducts = await parseMdFileToObj("menFakeProducts.md")
   const womenFakeProducts = await parseMdFileToObj("womenFakeProducts.md")
-  let fakeProducts = []
-  if(bestSellerProduct!==undefined){
-
-   fakeProducts = bestSellerProduct.data.concat(menFakeProducts.data,womenFakeProducts.data)
-  }
+  const fakeProducts = bestSellerProduct.data.concat(menFakeProducts.data,womenFakeProducts.data)
+  console.log(fakeProducts)
   const paths = fakeProducts.map(({attributes}:serverResI)=>({
     params : {name:attributes.name}
   }))
-  return {paths,fallback:true}
+  return {paths,fallback:false}
 }
 export async function getStaticProps({params}:contextI){
 
   const bestSellerProduct = await  parseMdFileToObj("fakeProducts.md")
   const menFakeProducts = await parseMdFileToObj("menFakeProducts.md")
   const womenFakeProducts = await parseMdFileToObj("womenFakeProducts.md")
-  let fakeProducts = []
-  if(bestSellerProduct!==undefined){
-
-   fakeProducts = bestSellerProduct.data.concat(menFakeProducts.data,womenFakeProducts.data)
-  }
+  const fakeProducts = bestSellerProduct.data.concat(menFakeProducts.data,womenFakeProducts.data)
+  
   return {
     // Passed to the page component as props
     props: {  products: fakeProducts,name:params.name},
