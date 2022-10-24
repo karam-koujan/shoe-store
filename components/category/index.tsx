@@ -1,19 +1,18 @@
 import * as React from "react";
 import * as qs from "qs";
-import  {menFakeProducts} from "../../content/menFakeProducts";
-import  {womenFakeProducts} from "../../content/womenFakeProducts";
+
 import {Close,Hamburger} from "../common/"; 
 import Filter from "./filter";
 
 
 
-const Category = ({categoryName,CategoryComponent}:any)=>{
+const Category = ({categoryName,CategoryComponent,products}:any)=>{
    
-   const initialProducts =  categoryName === "women" ? womenFakeProducts : menFakeProducts;
+   const initialProducts =  products;
    React.useEffect(()=>{
       console.log("nothing")
    },[categoryName])
-   const [products,setProducts] = React.useState(initialProducts);
+   const [fakeProducts,setProducts] = React.useState(initialProducts);
    const [showCollection,setShowCollection] = React.useState(false)
    const [averageRating,setAverageRating] = React.useState<number|null>();
    const [category,setCategory] = React.useState<string[]>([])
@@ -146,7 +145,7 @@ const Category = ({categoryName,CategoryComponent}:any)=>{
            </div>
         ):null}  
        <Filter categoryName={categoryName} handleDeleteCollection={handleDeleteCollection} showCollection={showCollection} handleSelectAverageRating={handleSelectAverageRating} handleSelectCategory={handleSelectCategory} handleSelectPrice={handleSelectPrice}/>
-         <CategoryComponent key={categoryName} products={products}   filter={qs.stringify(filter)}/>
+         <CategoryComponent key={categoryName} products={fakeProducts}   filter={qs.stringify(filter)}/>
            {products.length===0?<p className="text-primary mx-auto w-content-fit text-center capitalize text-[1.4rem]">no result</p>:null}
           </div>
           </section>
