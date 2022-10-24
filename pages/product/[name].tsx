@@ -79,6 +79,7 @@ export async function getStaticPaths(){
 export async function getStaticProps({params}:contextI){
  console.log(params.name,"name")
   const bestSellerProduct = await  parseMdFileToObj("fakeProducts.md")
+  console.log("bestSellers",bestSellerProduct)
   const menFakeProducts = await parseMdFileToObj("menFakeProducts.md")
   const womenFakeProducts = await parseMdFileToObj("womenFakeProducts.md")
   const fakeProducts = bestSellerProduct.data.concat(menFakeProducts.data,womenFakeProducts.data)
