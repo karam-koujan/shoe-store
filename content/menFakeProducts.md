@@ -185,7 +185,7 @@
            imageMagnifier: { 
             data: {
                 attributes : {
-                    url :"https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-008.jpg"
+                    url : "https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-product-image-008.jpg"
                 }
             }
         }
