@@ -70,7 +70,7 @@ export async function getStaticPaths(){
   const paths = fakeProducts.map(({attributes}:serverResI)=>({
     params : {name:attributes.name}
   }))
-  return {paths:[{params:{name:"men's green running"}}],fallback:true}
+  return {paths,fallback:false}
 }
 export async function getStaticProps({params}:contextI){
  console.log(params.name,"name")
@@ -83,8 +83,11 @@ export async function getStaticProps({params}:contextI){
   console.log("women",womenFakeProducts)
 
   const fakeProducts = bestSellerProduct.data.concat(menFakeProducts.data,womenFakeProducts.data)
- 
-    const fakeProduct = fakeProducts.filter(({attributes}:any)=>attributes.name===params.name)
+  let fakeProduct = fakeProducts[0]
+  if(params.name){
+    fakeProduct = fakeProducts.filter(({attributes}:any)=>attributes.name===params.name)
+
+  }
    
     
 
