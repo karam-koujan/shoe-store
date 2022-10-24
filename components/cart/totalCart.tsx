@@ -1,9 +1,12 @@
 import { useShoppingCart } from "../../context/shoppingCartContext";
-
+import StripeCheckout from "react-stripe-checkout";
 const TotalCart = ()=>{
-    const {shoppingCart} = useShoppingCart();
+    const {shoppingCart,setShoppingCart} = useShoppingCart();
     const totalPrice = shoppingCart.reduce((acc:number,{price,productAmount}:{price:number,productAmount:number})=>acc+price*productAmount,0)
-     return(
+    const onToken = ()=>{
+        setShoppingCart([])
+    } 
+    return(
     
         <table className="border-fourth border-[.5px]  md:w-full">
         <thead className="bg-lightGrey border-fourth border-[.5px]">
@@ -35,9 +38,11 @@ const TotalCart = ()=>{
         <tr className="text-fourth text-[1.1rem] font-inter ">
             <td className="px-[1rem] pt-[2rem] pb-[.8rem]" colSpan={2}>
                 <p><span className="capitalize">have</span> a coupon?</p>
+                <StripeCheckout  stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233" token={onToken} name="Famms" description="Buy  shoe"  amount={totalPrice*100}  billingAddress shippingAddress>
                 <button className="bg-primary text-fifth tracking-widest uppercase font-semibold text-[1.2rem] text-center w-full block mt-[.8rem] py-[1em] px-[1.5em] ">
                     proceed to checkout
                 </button>
+                </StripeCheckout>
             </td>
         </tr>
         </tbody>

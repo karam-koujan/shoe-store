@@ -4,6 +4,7 @@ import { Close,ProductAmount} from "../";
 import { useShoppingCart } from "../../../context/shoppingCartContext";
 import { useShoppingCartLogic} from "../../../hooks";
 import Link from "next/link";
+import StripeCheckout from "react-stripe-checkout";
 
 interface propsI{
     showCart:boolean;
@@ -13,7 +14,9 @@ const Cart = ({showCart,handleHideCart}:propsI)=>{
   const {shoppingCart,setShoppingCart} = useShoppingCart();
   const totalPrice = shoppingCart.reduce((acc:number,{price,productAmount}:{price:number,productAmount:number})=>acc+(price*productAmount),0);
   const {handleAddProduct,handleRemoveProduct,handleDeleteProduct} = useShoppingCartLogic({shoppingCart,setShoppingCart});
-
+  const onToken = ()=>{
+    setShoppingCart([])
+  }
     return(
         <React.Fragment>
         {showCart?<div className="bg-fourth opacity-75 fixed h-[100vh] w-[100%] left-0 top-0 z-10 transition-all duration-[.2s]"></div>:null}
@@ -69,14 +72,16 @@ const Cart = ({showCart,handleHideCart}:propsI)=>{
              </button>
             </a>
             </Link>
+             <StripeCheckout  stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233" token={onToken} name="Famms" description="Buy  shoe"  amount={totalPrice*100}  billingAddress shippingAddress>
              <button className="uppercase font-poppins tracking-widest bg-primary text-fifth text-center w-full py-[1rem] font-semibold text-[1.12rem] transition-all duration-[.2s] ease-in-out hover:bg-third focus:bg-third">
                checkout
              </button>
+            </StripeCheckout>
              </div>
            </div>):
            (
             <div className="px-[1.3rem] py-[1rem]"> 
-           <button className="block  uppercase font-poppins tracking-widest bg-fifth text-primary border-[1px] border-primary text-center w-full py-[.9rem] font-semibold text-[1.12rem] transition-all duration-[.2s] ease-in-out hover:text-third hover:border-third  focus:text-third focus:border-third">
+           <button onClick={handleHideCart} className="block  uppercase font-poppins tracking-widest bg-fifth text-primary border-[1px] border-primary text-center w-full py-[.9rem] font-semibold text-[1.12rem] transition-all duration-[.2s] ease-in-out hover:text-third hover:border-third  focus:text-third focus:border-third">
                continue shopping
              </button>
 

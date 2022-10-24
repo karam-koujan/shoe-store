@@ -93,7 +93,7 @@ export async function getStaticProps({params}:contextI){
 
   return {
     // Passed to the page component as props
-    props: {  product: fakeProduct[0].attributes,products:fakeProducts,name:params.name},
+    props: {  product: fakeProduct[0].attributes,products:fakeProducts,name:params.name,key:fakeProduct[0].id},
   }
 }
 
