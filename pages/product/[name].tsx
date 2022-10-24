@@ -81,7 +81,11 @@ export async function getStaticProps({params}:contextI){
   const bestSellerProduct = await  parseMdFileToObj("fakeProducts.md")
   console.log("bestSellers",bestSellerProduct)
   const menFakeProducts = await parseMdFileToObj("menFakeProducts.md")
+  console.log("men",menFakeProducts)
+
   const womenFakeProducts = await parseMdFileToObj("womenFakeProducts.md")
+  console.log("women",womenFakeProducts)
+
   const fakeProducts = bestSellerProduct.data.concat(menFakeProducts.data,womenFakeProducts.data)
   
   return {
