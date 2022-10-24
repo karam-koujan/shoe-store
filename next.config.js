@@ -8,7 +8,7 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-  reactStrictMode: true,
+  reactStrictMode:false,
   swcMinify: true,
   typescript: {
     // !! WARN !!
