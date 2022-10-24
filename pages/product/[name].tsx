@@ -1,10 +1,10 @@
 import * as React   from "react";
 import {useRouter} from "next/router";
 import type { NextPage } from 'next';
-import {RelatedProducts} from "../../../components/common/products";
-import { Description, Reviews, ProductInfo } from "../../../components/product";
-import ProductI from "../../../types/product";
-import parseMdFileToObj from "../../../lib/parseMdFileToObj";
+import {RelatedProducts} from "../../components/common/";
+import { Description, Reviews, ProductInfo } from "../../components/product";
+import ProductI from "../../types/product";
+import parseMdFileToObj from "../../lib/parseMdFileToObj";
 
 
 
