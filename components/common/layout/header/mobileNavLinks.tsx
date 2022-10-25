@@ -1,17 +1,18 @@
+import * as React from "react";
 import Link from "next/link";
 import { Close } from "../../";
 const navItem = ["Home","men","women","categories","lookbook","sale","our story","contact"];
 
 interface propsI{
   show : boolean ;
-  setShowNavBar: any;
+  handleHideNavBar:any;
 }
 
-const MobileNavLinks = ({show,setShowNavBar}:propsI)=>{
+const MobileNavLinks = ({show,handleHideNavBar}:propsI)=>{
    return(
-    <div className={` ${show?"w-full left-0 ":"left-[-100%] w-0]"} hidden md:block   bg-white absolute  top-0 min-h-[100vh] z-20 pt-[1.2rem] transform-all duration-[.4s] ease-out`} tabIndex={-1}>
-    <div className="flex justify-end pr-[.8rem]" onClick={setShowNavBar}>
-      <Close color="#6e7051" size="18"/>
+    <div className={` ${show?"w-full left-0 ":"left-[-100%] w-0]"} hidden md:block   bg-white fixed  top-0 min-h-[100vh] z-20 pt-[1.2rem] transform-all duration-[.4s] ease-out`} tabIndex={-1}>
+    <div className="flex justify-end pr-[.8rem]">
+      <Close color="#6e7051" size="18" onClick={handleHideNavBar}/>
     </div>
     <ul className="md:flex flex-col pt-[1.2rem]">
     {navItem.map((item,idx)=>(
