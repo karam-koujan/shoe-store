@@ -110,16 +110,16 @@ const Category = ({categoryName,CategoryComponent,products}:any)=>{
     return(
        <section className="container container-primary-px bg-lightGrey py-[3rem] mb-[3rem]" tabIndex={-1}>
        <div className="container px-[3rem] bg-fifth pt-[3rem] pb-[10rem]">
-          <h1 className="capitalize font-poppins font-medium text-[1.9rem] text-primary pb-[1.8rem]">
+          <h1 className="capitalize font-poppins font-medium text-[1.9rem] text-primary pb-[1.8rem] sm:mx-auto sm:w-fit ">
               {categoryName}
           </h1>
-       <div className="flex justify-between mb-[2rem] ">
-          <div className="flex gap-[1.3rem] items-center">
+       <div className="flex justify-between mb-[2rem] sm:flex-col sm:items-center sm:gap-[1.3rem]">
+          <div className="flex gap-[1.3rem] items-center sm:flex-col">
              <button className="bg-primary py-[.5em] px-[1.2em] flex items-center gap-[.4rem] text-center uppercase font-bold text-[1rem] text-fifth tracking-[.1rem] transition-all duration-[.3s] ease-in-out hover:bg-third focus:bg-third" onClick={handleShowCollection}>
               {!showCollection?<Hamburger size="19" color="#ffffff"/>:<Close color="#ffffff" size="19"/>}
                 <span>filter shoes</span>
              </button>
-             <p className="text-fourth text-[1.1rem] font-inter" >
+             <p className="text-fourth text-[1.1rem] font-inter  " >
                 <span className="capitalize">showing</span> all {fakeProducts.length} results
              </p>
           </div>
@@ -135,7 +135,7 @@ const Category = ({categoryName,CategoryComponent,products}:any)=>{
           </div>
           {filter.length>0?
           (
-          <div className="flex gap-[2rem] mb-[2rem] items-center overflow-x-auto ">
+          <div className="flex gap-[2rem] mb-[2rem] items-center overflow-x-auto flex-wrap sm:flex-col sm:items-center sm:overflow-y-auto sm:overflow-x-hidden">
              {filter.map((filterItem,idx)=>(
              <button key={idx} className="flex  items-center gap-[.3rem] bg-primary text-fifth  text-center font-poppins capitalize py-[.5rem] px-[1rem]">
                <span>{filterItem}</span>

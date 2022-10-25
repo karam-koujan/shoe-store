@@ -24,7 +24,7 @@ const Product = ({fakeProducts}:any)=>{
     
     return(
 
-        <div  className={"grid gap-[1.5rem] gap-y-[3rem] sm:gap-y-[1.5rem] "+`${fakeProducts.length<3?" grid-cols-auto-fit-lg md:grid-cols-auto-fit":" grid-cols-auto-fit"}`}>
+        <div  className={"grid gap-[1.5rem] gap-y-[3rem] sm:gap-y-[1.5rem] "+`${fakeProducts.length<3?" grid-cols-auto-fit-lg md:grid-cols-auto-fit":" grid-cols-auto-fit"} sm:flex sm:flex-col `}>
         {
             fakeProducts.map((product:any)=>(
 
@@ -32,7 +32,7 @@ const Product = ({fakeProducts}:any)=>{
                     <Link href={`/product/${product.attributes.name}`} >
                     <a>
                     <div>
-                        <div tabIndex={0} className="w-full cursor-pointer before:content-['quick\00a0view'] relative  before:absolute before:bg-third before:text-fifth before:capitalize before:text-[1.1rem] before:text-center before:left-[0] before:right-[0] before:bottom-[.1%] before:py-[.5rem] z-1 before:z-20 before:opacity-0  before:transition-all before:duration-[.3s] before:ease-out hover:before:opacity-100 focus:before:opacity-100  after:content-['Sale!'] after:absolute after:bg-primary after:text-fifth after:rounded-[50%]  after:top-[-2%] after:right-[-2%] after:w-[40px] after:h-[40px] after:flex after:justify-center after:items-center after:text-[0.9rem]">
+                        <div tabIndex={0} className="w-full cursor-pointer  relative   z-1    after:content-['Sale!'] after:absolute after:bg-primary after:text-fifth after:rounded-[50%]  after:top-[-2%] after:right-[-2%] after:w-[40px] after:h-[40px] after:flex after:justify-center after:items-center after:text-[0.9rem] ">
                         <Image src={`${product.attributes.image.data.attributes.url}`} alt={`${product.attributes.name} image`} height={400} width={400} layout="responsive"/>
                         </div>
 
